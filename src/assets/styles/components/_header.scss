@@ -1,0 +1,16 @@
+.header {
+    position: relative;
+    padding: $base-unit;
+
+    @media screen and (min-width: 768px) {
+        padding: $double-unit;
+    }
+
+    &__logo {
+        max-width: 70px;
+
+        @media screen and (min-width: 768px) {
+            max-width: 110px;
+        }
+    }
+}
