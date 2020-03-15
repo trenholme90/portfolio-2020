@@ -1,9 +1,15 @@
 <template>
-  <img alt="James Trenholme" src="../assets/logo.svg" />
+  <img :class="logoClss" alt="James Trenholme" src="../assets/logo.svg" />
 </template>
 
 <script>
 export default {
-  name: "Logo"
+  name: "Logo",
+  props: ["logoClass"],
+  data: function() {
+    return {
+      logoClss: this.logoClass
+    };
+  }
 };
-</script>s
+</script>

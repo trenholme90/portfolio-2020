@@ -1,0 +1,104 @@
+
+
+.section {
+    width: 100%;
+    height: 100%;
+    padding: 0 $base-unit;
+    box-sizing: border-box;
+    
+
+    @media screen and (min-width: 1025px) {
+        width: 50%;
+    }
+
+    &--info {
+        @extend .above-base-layer;
+
+        @media screen and (min-width: 1200px) {
+            width: 44%;
+        }
+
+        // &:before {
+        //     @media screen and (min-width: 1200px) {
+        //         content: "";
+        //         position: absolute;
+        //         border-left: 3px solid #ececec;
+        //         top: -48vh;
+        //         left: 50%;                
+        //         height: 200vh;
+        //         transform: rotate(20deg);
+        //         box-shadow: inset 0 0 50px #ececec, 
+        //         inset 20px 0 80px $primary-colour, 
+        //         inset -20px 0 80px #ececec, 
+        //         inset 20px 0 300px $primary-colour, 
+        //         inset -20px 0 300px #ececec, 
+        //         0 0 7px 5px #ececec, 
+        //         -10px 0 80px $primary-colour, 
+        //         10px 0 80px #ececec;
+        //     }
+        // }
+    }
+
+    &--hero {
+        
+        &__img {        
+            position: absolute;        
+            background-position: bottom;
+            background-image:url("./assets/jt-placeholder.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            max-width: 400px;
+            @extend .bottom-layer;
+
+            @media screen and (min-width: 768px) {
+                max-width: 500px;
+            }
+            
+            @media screen and (min-width: 1025px) {
+                background-position: right;
+                max-width: none;
+                top: auto;
+                right: 0;
+            }
+
+            &--full-page {
+                background-size: cover;
+            }
+        }
+    }
+}
+
+.content-block {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    @media screen and (min-width: 768px) {
+        max-width: none;
+        margin: 0 1em;
+    }
+
+    @media screen and (min-width: 1025px) {
+        position: relative;
+        align-items: flex-start;
+    }
+}
+
+.text-block {
+    background-color: $white;
+    color: black;
+    margin: $base-unit 0 0;
+    border-radius: 5px;
+
+    &:last-of-type {
+        margin-bottom: $base-unit;
+    }
+}
