@@ -2,7 +2,6 @@
   <div id="app" :class="{ 'is-landscape': isLandscape }">
     <div class="bg-gradient"></div>
     <div class="bg-gradient bg-gradient--bottom"></div>
-    <div class="fog"></div>
     <Header />
     <router-view />
   </div>
