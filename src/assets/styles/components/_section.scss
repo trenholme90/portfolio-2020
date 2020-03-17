@@ -1,13 +1,14 @@
-
+@import "../helper/transition";
 
 .section {
     width: 100%;
-    height: $mobile-section-height;
     padding: 0 $base-unit;
     box-sizing: border-box;
+    margin-bottom: $double-unit;
 
     @media screen and (min-width: 768px) {
         height: $above-mobile-section-height;
+        padding: 0 $double-unit;
     }
     
 
@@ -87,7 +88,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%;
 
     @media screen and (min-width: 768px) {
         max-width: none;
@@ -96,6 +96,11 @@
     @media screen and (min-width: 1025px) {
         position: relative;
         align-items: flex-start;
+        margin: 0 auto $double-unit;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
     }
 
     &__list {
@@ -128,8 +133,19 @@
             }
 
             img {
+                opacity: 0;
                 width: 100%; 
-                display: block;
+                max-width: 600px;
+                margin: 0 auto;
+                animation: fadeUp 1s;
+                animation-fill-mode: forwards;
+            }
+
+            &.fade-animation {
+                img {
+                    animation: fadeDown 1s;
+                    animation-fill-mode: forwards;
+                }
             }
         }
     }
@@ -138,7 +154,7 @@
 .text-block {
     background-color: $white;
     color: black;
-    margin: $base-unit 0 0;
+    margin-top: $base-unit;
     border-radius: 5px;
 
     &:last-of-type {
@@ -146,8 +162,12 @@
     }
 }
 
-.asda-img {
-    background-image: url("https://www.prolificnorth.co.uk/sites/default/files/styles/lightbox_large/public/images/news/asda.jpg?itok=DQnSZGuE");
+.app-background-image {
     background-size: cover;
     opacity: .2;
+    max-width: none;
+}
+
+.asda-img {
+    background-image: url("https://www.prolificnorth.co.uk/sites/default/files/styles/lightbox_large/public/images/news/asda.jpg?itok=DQnSZGuE");
 }

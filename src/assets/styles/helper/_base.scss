@@ -39,6 +39,10 @@
         height: 60px;
         line-height: 60px;
     }
+
+    h1 {
+        font-size: 1.5em;
+    }
 }
 
 .btn {
@@ -140,11 +144,24 @@
     font-size: 1em;
     height: 40px;
     line-height: 40px;
+    font-style: italic;
 
     @media screen and (min-width: 768px) {
         font-size: 1.3em;
         height: 50px;
         line-height: 50px;
+    }
+
+    &.text-block {
+        margin-bottom: 0;
+    }
+
+    h1.date {
+        font-size: 1.1em;
+
+        @media screen and (min-width: 768px) {
+            font-size: 1.3em;
+        }
     }
 }
 
@@ -237,6 +254,10 @@
     @media screen and (min-width: 1025px) {
         display: none !important;
     }
+}
+
+.margin-right {
+    margin-right: $base-unit;
 }
 
 .fog {
