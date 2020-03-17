@@ -1,5 +1,5 @@
 <template>
-  <img :class="logoClss" alt="James Trenholme" src="../assets/logo.svg" />
+  <img :class="logoClss" alt="James Trenholme" src="../assets/svgs/logo.svg" />
 </template>
 
 <script>

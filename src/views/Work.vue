@@ -20,6 +20,9 @@
             <li class="content-block__list-item"><p>Illustrator</p></li>
           </ul>
         </div>
+        <div class="content-block">
+          <span class="chevron chevron--down flex--content-center"></span>
+        </div>
       </section>
       <section class="section section--full flex--column">
         <div class="content-block content-block--full content-block--center">
