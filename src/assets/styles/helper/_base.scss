@@ -18,9 +18,11 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
+    overflow-y: scroll;
 
     @media screen and (min-width: 1025px) {
         flex-direction: row;
+        overflow-y: visible;
     }
 }
 
@@ -36,6 +38,10 @@
         font-size: 2em;
         height: 60px;
         line-height: 60px;
+    }
+
+    h1 {
+        font-size: 1.5em;
     }
 }
 
@@ -138,11 +144,24 @@
     font-size: 1em;
     height: 40px;
     line-height: 40px;
+    font-style: italic;
 
     @media screen and (min-width: 768px) {
         font-size: 1.3em;
         height: 50px;
         line-height: 50px;
+    }
+
+    &.text-block {
+        margin-bottom: 0;
+    }
+
+    h1.date {
+        font-size: 1.1em;
+
+        @media screen and (min-width: 768px) {
+            font-size: 1.3em;
+        }
     }
 }
 
@@ -197,6 +216,13 @@
         height: 100%;
     }
 
+    &--content-center {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+    }
+
     &--content-end {
         display: flex;
         flex: 1;
@@ -230,6 +256,10 @@
     }
 }
 
+.margin-right {
+    margin-right: $base-unit;
+}
+
 .fog {
     position: absolute;
     top: 0;
@@ -239,7 +269,7 @@
     overflow: hidden;
     pointer-events: none;
     z-index: $above-base-layer;
-    opacity: 0.3;
+    opacity: 0.2;
 
     &:before,
     &:after {
