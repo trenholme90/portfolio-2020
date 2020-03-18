@@ -145,6 +145,7 @@
     height: 40px;
     line-height: 40px;
     font-style: italic;
+    margin-top: $base-unit;
 
     @media screen and (min-width: 768px) {
         font-size: 1.3em;

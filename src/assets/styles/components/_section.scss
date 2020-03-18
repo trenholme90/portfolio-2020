@@ -4,7 +4,7 @@
     width: 100%;
     padding: 0 $base-unit;
     box-sizing: border-box;
-    margin-bottom: $double-unit;
+    margin: $double-unit 0;
 
     @media screen and (min-width: 768px) {
         height: $above-mobile-section-height;
@@ -154,7 +154,6 @@
 .text-block {
     background-color: $white;
     color: black;
-    margin-top: $base-unit;
     border-radius: 5px;
 
     &:last-of-type {
