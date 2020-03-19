@@ -17,11 +17,11 @@
             Contact
           </router-link>
         </div>
-        <div class="menu__item menu__icon-container">
-          <Github clss="menu__icon" />
-          <Twitter clss="menu__icon" />
-          <Email clss="menu__icon" />
-        </div>
+        <div class="menu__item logo-icon__container">
+          <Github clss="logo-icon" />
+          <Twitter clss="logo-icon" />
+          <Email clss="logo-icon" />
+        </div>  
       </ul>
     </div>
     <Hamburger :menuIsOpen="isOpen" @click.native="toggleMenu" class="hide-desktop"/>
