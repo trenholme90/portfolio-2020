@@ -30,6 +30,9 @@
             </footer>
           </div>
         </div>
+        <div class="show-desktop flex--desktop">
+
+        </div>
       </section>
       <div class="section--hero__img"></div>
     </div>

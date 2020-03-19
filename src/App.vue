@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{ 'is-landscape': isLandscape }">
+  <div id="app">
     <div class="bg-gradient"></div>
     <div class="bg-gradient bg-gradient--bottom"></div>
     <Header />
@@ -14,24 +14,6 @@ export default {
   name: "app",
   components: {
     Header
-  },
-  data: () => {
-    return {
-      isLandscape: false
-    };
-  },
-  beforeMount() {
-    if (window.DeviceOrientationEvent) {
-      this.orientation();
-      window.addEventListener("orientationchange", this.orientation);
-    }
-  },
-  methods: {
-    orientation: function() {
-      window.innerHeight < window.innerWidth
-        ? (this.isLandscape = false)
-        : (this.isLandscape = true);
-    }
   }
 };
 </script>
