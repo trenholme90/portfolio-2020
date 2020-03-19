@@ -7,7 +7,6 @@
     margin: $double-unit 0;
 
     @media screen and (min-width: 768px) {
-        height: $above-mobile-section-height;
         padding: 0 $double-unit;
     }
     
@@ -19,29 +18,9 @@
     &--info {
         @extend .above-base-layer;
 
-        @media screen and (min-width: 1200px) {
-            width: 44%;
+        @media screen and (min-width: 1025px) {
+            height: 620px;
         }
-
-        // &:before {
-        //     @media screen and (min-width: 1200px) {
-        //         content: "";
-        //         position: absolute;
-        //         border-left: 3px solid #ececec;
-        //         top: -48vh;
-        //         left: 50%;                
-        //         height: 200vh;
-        //         transform: rotate(20deg);
-        //         box-shadow: inset 0 0 50px #ececec, 
-        //         inset 20px 0 80px $primary-colour, 
-        //         inset -20px 0 80px #ececec, 
-        //         inset 20px 0 300px $primary-colour, 
-        //         inset -20px 0 300px #ececec, 
-        //         0 0 7px 5px #ececec, 
-        //         -10px 0 80px $primary-colour, 
-        //         10px 0 80px #ececec;
-        //     }
-        // }
     }
 
     &--hero {
@@ -127,9 +106,8 @@
             width: 100%;
             margin-bottom: $base-unit;
 
-            @media screen and (min-width: 1025px) {
+            @media screen and (min-width: 768px) {
                 width: 70%;
-                margin: 0 auto;
             }
 
             img {
