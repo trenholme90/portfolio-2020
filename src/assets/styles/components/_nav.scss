@@ -88,36 +88,6 @@
                 }
             }
         }
-
-        &__icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: $base-unit;
-            width: 50px;
-            
-            &-container {
-                display: flex;
-                align-items: flex-end;
-                align-self: flex-end;
-                justify-self: flex-end;
-                flex: 1;
-                margin-bottom: $double-unit;
-
-                @media screen and (min-width: 1025px) {
-                    display: none;
-                }
-            }
-
-            &:last-of-type {
-                margin-right: 0;
-            }
-
-            svg {
-                fill: $white;
-            }
-        }
     }
-    
 }
 

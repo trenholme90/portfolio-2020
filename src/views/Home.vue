@@ -30,9 +30,11 @@
             </footer>
           </div>
         </div>
-        <div class="show-desktop flex--desktop">
-
-        </div>
+          <div class="logo-icon__container show-desktop">
+            <Github clss="logo-icon" />
+            <Twitter clss="logo-icon" />
+            <Email clss="logo-icon" />
+          </div>
       </section>
       <div class="section--hero__img"></div>
     </div>
@@ -41,10 +43,16 @@
 
 <script>
 import Button from "../components/Button.vue";
+import Github from "../components/icons/Github.vue";
+import Twitter from "../components/icons/Twitter.vue";
+import Email from "../components/icons/Email.vue";
 export default {
   name: "home",
   components: {
-    Button
+    Button,
+    Github,
+    Twitter,
+    Email
   }
 };
 </script>
