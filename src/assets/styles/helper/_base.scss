@@ -3,8 +3,8 @@
 
 #app {
     height: 100vh;
+    overflow: scroll;
     box-sizing: border-box;
-    overflow-y: scroll;
 }
 
 .page-container {
@@ -15,7 +15,6 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    overflow-y: scroll;
 
     @media screen and (min-width: 1025px) {
         flex-direction: row;
@@ -137,8 +136,11 @@
 }
 
 [data-page-type="home"] {
-    // 102px is height of header
-    height: calc(100% - 102px);
+    height: calc(100vh - 102px);
+
+    @media screen and (min-width: 1025px) {
+        height: calc(100% - 146px);
+    }
 
     .section{
 
@@ -203,7 +205,7 @@
     bottom: 0;
     height: 100vh;
     display: block;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(79, 26, 132, 0.4));
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(79, 26, 132, 0.6));
     @extend .base-layer;
 
     &--bottom {
@@ -275,42 +277,3 @@
 .margin-right {
     margin-right: $base-unit;
 }
-
-.fog {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: $above-base-layer;
-    opacity: 0.2;
-
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      height: 100%;
-      width: 300%;
-      background-size: contain;
-      background-position: center;
-      background-repeat: repeat-x;
-    }
-
-    &:before {
-      background-image: url('https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-1.png');
-      animation: drift 60s linear 0s infinite;
-    }
-
-    &:after {
-      background-image: url('https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-2.png');
-      animation: drift 25s linear 0s infinite;
-    }
-
-    @keyframes drift {
-      from { transform: translate3d(0, 0, 0); }
-      to { transform: translate3d(-200vw, 0, 0); }
-    }
-  }
