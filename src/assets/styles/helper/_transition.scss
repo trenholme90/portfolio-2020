@@ -15,14 +15,30 @@
     }
 }
 
-@keyframes fadeUp {
+@keyframes fadeToggle {
     from   { 
         opacity: 1;
         margin-top: 0;
     }
 
-    to { 
+    50% { 
         opacity: 0;
         margin-top: -50px; 
     }
+
+    to { 
+        opacity: 1;
+        margin-top: 0; 
+    }
 }
+
+.fade-enter-active, .fade-leave-active {
+    opacity: 1;
+    margin-top: 0;
+    transition: all 0.25s ease-out;
+  }
+  
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+    margin-top: -50px; 
+  }

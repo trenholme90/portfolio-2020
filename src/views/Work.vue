@@ -36,12 +36,18 @@
         <hr class="hide-desktop" />
       </section>
       <section class="section section--full flex--column">
-        <div class="content-block content-block--full content-block--center">
+        <!-- <div class="content-block content-block--full content-block--center">
           <ul class="content-block__list">
             <li class="content-block__list-item content-block__list-img fade-animation"><img src="https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg" /></li>
-            <!-- <li class="content-block__list-item content-block__list-img"><img src="https://trenholme90.github.io/images/Bacardi-screenshot.jpg" /></li> -->
+            <li class="content-block__list-item content-block__list-img"><img src="https://trenholme90.github.io/images/Bacardi-screenshot.jpg" /></li>
           </ul>
-        </div>
+        </div> -->
+        <Slider
+          :sliderImages="[
+            'https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg',
+            'https://trenholme90.github.io/images/Bacardi-screenshot.jpg'
+          ]"
+        />
       </section>
     </div>
     <div class="section--hero__img app-background-image asda-img"></div>
@@ -49,7 +55,11 @@
 </template>
 
 <script>
+import Slider from "../components/Slider.vue";
 export default {
-  name: "work"
+  name: "work",
+  components: {
+    Slider
+  }
 };
 </script>

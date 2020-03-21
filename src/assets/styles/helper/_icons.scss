@@ -9,10 +9,17 @@
         width: 10px;
     }
 
-    &--down {
+    &--left {
         &:before {
             top: 0;
-            transform: rotate(135deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    &--right {
+        &:before {
+            top: 0;
+            transform: rotate(-45deg);
         }
     }
 }
