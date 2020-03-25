@@ -10,7 +10,7 @@
           <router-link to="/about" class="menu__item" data-page="about">
             About
           </router-link>
-          <router-link to="/work" class="menu__item" data-page="work">
+          <router-link to="/work/Jet2" class="menu__item" data-page="work">
             Work
           </router-link>
           <router-link to="/contact" class="menu__item" data-page="contact">
