@@ -17,7 +17,7 @@
         <span v-for="dot in images" :key="dot.index" class="slider__dot" />
       </div>
       <div>
-          <Chevron clss="chevron chevron--left" />
+          <Chevron clss="chevron chevron--left is-disabled" />
           <Chevron clss="chevron chevron--right" />
       </div>
     </div>
@@ -47,6 +47,7 @@ export default {
           nextArrow = document.querySelector('.chevron--right'),
           arrows = [previousArrow, nextArrow],
           vm = this;
+
     this.imgQuant = dots.length
     dots[0].classList.add("is-active");
 
@@ -59,46 +60,78 @@ export default {
     }
   },
   methods: {
-    sliderBinding: function(index, dot, images, arrayDots, vm) {
-      const targetInfo = this.returnTargetFromArray(index, images),
+    sliderBinding: function(index, dot, images, dots, vm) {
+      const targetInfo = vm.returnTargetFromArray(index, images),
             targetSrc = targetInfo[0],
             targetIndex = parseInt(targetInfo[1])
 
       dot.addEventListener("click", function() {
-        vm.removeAllInstancesOfClass(arrayDots, "is-active");
-        vm.changeImgSrc(targetSrc, targetIndex, vm);
+        vm.removeAllInstancesOfClass(dots, "is-active");
+        vm.changeImgSrc(targetSrc, targetIndex, vm, dots);
         this.classList.add("is-active");
       });
     },
+
     arrowBinding: (arrow, previousArrow, nextArrow, index, images, dots, vm) => {
       arrow.addEventListener("click", function() {
         const currentIndexForDisplay = parseInt(vm.activeIndex),
               currentIndex = currentIndexForDisplay - 1,
               previousIndex = currentIndex - 1,
               nextIndex = currentIndex + 1
-        vm.removeAllInstancesOfClass(dots, "is-active");
 
-        if(arrow === nextArrow) {
-          const nextTargetInfo = vm.returnTargetFromArray(nextIndex, images),
-                nextTargetSrc = nextTargetInfo[0],
-                nextTargetIndex = nextTargetInfo[1],
-                isNext = true;
-
-          vm.changeImgSrc(nextTargetSrc, nextTargetIndex, vm, isNext)
-          const targetDot = vm.returnTargetFromArray(nextIndex, dots);
-          targetDot[0].classList.add("is-active");
-        } else if (arrow === previousArrow) { 
-          const previousTargetInfo = vm.returnTargetFromArray(previousIndex, images),
-                previousTargetSrc = previousTargetInfo[0],
-                previousTargetIndex = previousTargetInfo[1],
-                isPrevious = true;
-
-          vm.changeImgSrc(previousTargetSrc, previousTargetIndex, vm, isPrevious)
-          const targetDot = vm.returnTargetFromArray(previousTargetIndex, dots);
-          targetDot[0].classList.add("is-active");
-        }
+        if(arrow === nextArrow) vm.arrowHandler(nextIndex, images, dots, vm)
+        else if (arrow === previousArrow) vm.arrowHandler(previousIndex, images, dots, vm)
       })
     },
+
+    changeImgSrc: (targetSrc, targetIndex, vm, dots, isNextOrPrevious) => {
+      const sliderImg = document.querySelector(".slider__img"),
+            previousArrow = document.querySelector('.chevron--left'),
+            nextArrow = document.querySelector('.chevron--right'),
+            arrows = [previousArrow, nextArrow],
+            imgQuantIndex = parseInt(vm.imgQuant) - 1
+            
+      if(isNextOrPrevious) {
+        // if the target Index is outside of image range
+        if(targetIndex === -1 || targetIndex > imgQuantIndex) return
+      }
+      vm.removeAllInstancesOfClass(arrows, 'is-disabled')
+
+      // if first in the list
+      if (targetIndex === 0) {
+        previousArrow.classList.add('is-disabled')
+        vm.imageHandler(targetIndex, dots, sliderImg, targetSrc, vm)
+      }
+      // if last in the list
+      else if(targetIndex === imgQuantIndex) {
+        nextArrow.classList.add('is-disabled')
+        vm.imageHandler(targetIndex, dots, sliderImg, targetSrc, vm) 
+      }      
+      else {
+        vm.imageHandler(targetIndex, dots, sliderImg, targetSrc, vm)
+      }
+    },
+
+    imageHandler: (targetIndex, dots, sliderImg, targetSrc, vm) => {
+      vm.$data.activeIndex = targetIndex + 1;
+      vm.$data.isShowing = false;
+      vm.removeAllInstancesOfClass(dots, "is-active");
+      sliderImg.style.backgroundImage = `url('${targetSrc}')`;
+    },
+
+    arrowHandler: (index, images, dots, vm) => {
+      const targetInfo = vm.returnTargetFromArray(index, images),
+            targetSrc = targetInfo[0],
+            isNextOrPrevious = true;
+
+      let targetIndex = targetInfo[1];
+      if(targetIndex == undefined) targetIndex = index
+
+      vm.changeImgSrc(targetSrc, targetIndex, vm, dots, isNextOrPrevious)
+      const targetDot = vm.returnTargetFromArray(index, dots);
+      if(targetDot[0])targetDot[0].classList.add("is-active");
+    },
+
     returnTargetFromArray: (index, array) => {
       let targetSrc = [];
       for (let [itemIndex, item] of array.entries()) {
@@ -108,29 +141,13 @@ export default {
       }
       return targetSrc;
     },
-    changeImgSrc: (targetSrc, targetIndex, vm, isNextOrPrevious) => {
-      const sliderImg = document.querySelector(".slider__img"),
-            sliderImgSrc = sliderImg.style.backgroundImage
-            
-      if(isNextOrPrevious) {
-        if(targetIndex + 1 > vm.$data.imgQuant ||
-        targetIndex - 1 < vm.$data.imgQuant) {
-          sliderImg.style.backgroundImage = sliderImgSrc;
-        } else {
-          vm.$data.activeIndex = targetIndex + 1;
-          vm.$data.isShowing = false;
-          sliderImg.style.backgroundImage = `url('${targetSrc}')`;
-        }
-      }
-      vm.$data.activeIndex = targetIndex + 1;
-      vm.$data.isShowing = false;
-      sliderImg.style.backgroundImage = `url('${targetSrc}')`;
-    },
+
     removeAllInstancesOfClass: (elements, clss) => {
       for (let el of elements) {
         if (el.classList.contains(clss)) el.classList.remove(clss);
       }
     }
+
   }
 };
 </script>

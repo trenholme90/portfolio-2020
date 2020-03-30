@@ -3,9 +3,15 @@
     vertical-align: middle;
     width: auto;
     display: inline-block;
+    cursor: pointer;
 
     &--left {
         transform: rotate(180deg);
+    }
+
+    &.is-disabled {
+        opacity: .2;
+        cursor: default;
     }
 
 }
