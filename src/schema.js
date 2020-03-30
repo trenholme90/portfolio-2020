@@ -4,8 +4,8 @@ export default
         "page": "Jet2",
         "role": "Front-end Developer",
         "date": "Oct 2017 - Present",
-        "text": "Creating components for both Jet2 and Jet2Holidays with HTML5, Sass and Vue.js in a .net Sitecore build. A big part of the role is working with the CRO (Conversion Rate Optimisation) team to test new functionality through A/B or MVT tests to improve conversion.",
-        "skills": ["HTML", "SASS (BEM methodology)", "Javascript", "Vue.js", "Optimizely", "Sitecore", "Git"],
+        "text": "Creating components for both Jet2 and Jet2Holidays with HTML5, Sass (BEM methodology) and Vue.js in a .net Sitecore build. A big part of the role is working with the CRO (Conversion Rate Optimisation) team to test new functionality through A/B or MVT tests to improve conversion.",
+        "skills": ["HTML", "SASS", "Javascript", "Vue.js", "Optimizely", "Sitecore", "Git"],
         "images": ["https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg",
                 "https://trenholme90.github.io/images/Bacardi-screenshot.jpg",
                 "https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg"]
