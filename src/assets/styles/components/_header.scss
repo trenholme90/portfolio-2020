@@ -1,9 +1,10 @@
 .header {
     position: relative;
-    padding: $base-unit;
+    padding-bottom: $base-unit;
 
     @media screen and (min-width: 768px) {
-        padding: $double-unit;
+        padding: $base-unit;
+        padding-bottom: $double-unit;
     }
 
     &__logo {

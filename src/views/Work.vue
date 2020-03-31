@@ -23,28 +23,52 @@
         <div class="content-block content-block--full content-block--center">
           <h1>Skills</h1>
           <ul class="content-block__list">
-            <li v-for="skill in skills" :key="skill.index" class="content-block__list-item">{{ skill }}</li>
+            <li
+              v-for="skill in skills"
+              :key="skill.index"
+              class="content-block__list-item"
+            >
+              {{ skill }}
+            </li>
           </ul>
         </div>
         <hr class="hide-desktop" />
       </section>
       <section class="section section--full flex--column">
-        <Slider
-          :sliderImages="images"
-        />
+        <Slider :sliderImages="images" :key="images.length" />
+        <div class="full-width" style="height: 100px;">
+          <div class="flex--column flex--full-height flex--content-end">
+            <footer>
+              <Button
+                btnClass="btn btn--secondary"
+                btnTxt="Previous"
+                :btnLink="pageFrom.path"
+              />
+              <Button
+                btnClass="btn btn--primary"
+                btnTxt="Next"
+                :btnLink="pageTo.path"
+
+              />
+            </footer>
+          </div>
+        </div>
       </section>
     </div>
-    <div class="section--hero__img app-background-image asda-img"></div>
+    <!-- <div class="section--hero__img app-background-image asda-img"></div> -->
   </div>
 </template>
 
 <script>
 import Slider from "../components/Slider.vue";
 import Schema from "../schema";
+import Button from "../components/Button.vue";
+
 export default {
   name: "work",
   components: {
-    Slider
+    Slider,
+    Button,
   },
   data: function() {
     return {
@@ -53,15 +77,22 @@ export default {
       date: "",
       text: "",
       skills: [],
-      images: []
-    }
+      images: [],
+      pageTo: "",
+      pageFrom: ""
+    };
   },
   beforeMount() {
-    this.dataHandler()
+    this.dataHandler();
+  },
+  beforeUpdate () {
+    this.dataHandler();
   },
   watch: {
-    $route (){
-      this.dataHandler()
+    $route(to, from) {
+      this.pageTo = to
+      this.pageFrom = from
+      console.log(this.pageTo, this.pageFrom)
     }
   },
   methods: {
@@ -69,23 +100,22 @@ export default {
       for (let item in Schema) {
         if (Object.hasOwnProperty.call(Schema, item)) {
           const pageName = Schema[item].page,
-                role = Schema[item].role,
-                date = Schema[item].date,
-                text = Schema[item].text,
-                skills = Schema[item].skills,
-                images = Schema[item].images,
                 currentRoute = this.$route.params.id;
 
-          if(pageName === currentRoute) {
-            this.place = pageName
-            this.role = role
-            this.date = date
-            this.text = text
-            this.skills = skills
-            this.images = images
+          if (pageName === currentRoute) {
+            const role = Schema[item].role,
+                  date = Schema[item].date,
+                  text = Schema[item].text,
+                  skills = Schema[item].skills,
+                  images = Schema[item].images;
+
+            this.place = pageName;
+            this.role = role;
+            this.date = date;
+            this.text = text;
+            this.skills = skills;
+            this.images = images;
           }
-          console.log(this.skills)
-          console.log(this.images)
         }
       }
     }
