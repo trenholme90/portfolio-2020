@@ -18,7 +18,7 @@
     &--info {
         @extend .above-base-layer;
 
-        @media screen and (min-width: 1025px) {
+        @media screen and (min-width: 1200px) {
             height: 620px;
         }
     }
