@@ -30,7 +30,7 @@
             </footer>
           </div>
         </div>
-          <div class="logo-icon__container show-desktop">
+          <div class="logo-icon__container">
             <Github clss="logo-icon" />
             <Twitter clss="logo-icon" />
             <Email clss="logo-icon" />

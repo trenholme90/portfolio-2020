@@ -37,7 +37,7 @@
       <section class="section section--full flex--column">
         <Slider :sliderImages="images" :key="images.length" />
         <div class="full-width" style="height: 100px;">
-          <div class="flex--column flex--full-height flex--content-end">
+          <div class="flex--column flex--full-height">
             <footer>
               <Button
                 btnClass="btn btn--secondary"

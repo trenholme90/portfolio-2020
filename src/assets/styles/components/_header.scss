@@ -1,6 +1,6 @@
 .header {
     position: relative;
-    padding-bottom: $base-unit;
+    padding: $base-unit;
 
     @media screen and (min-width: 768px) {
         padding: $base-unit;
