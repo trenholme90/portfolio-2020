@@ -1,6 +1,7 @@
 export default
 {
     "item1": {
+        "index": 0,
         "page": "Jet2",
         "role": "Front-end Developer",
         "date": "Oct 2017 - Present",
@@ -11,6 +12,7 @@ export default
                 "https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg"]
     },
     "item2": {
+        "index": 1,
         "page": "ASDA",
         "role": "Web Designer",
         "date": "Feb 2016 - Oct 2017",
@@ -21,6 +23,7 @@ export default
 
     },
     "item3": {
+        "index": 2,
         "page": "Github",
         "role": "Front-end Developer",
         "date": "Spare time",
@@ -30,6 +33,7 @@ export default
                 "https://trenholme90.github.io/images/Bacardi-screenshot.jpg"]
     },
     "item4": {
+        "index": 3,
         "page": "Loko Pet Apparel",
         "role": "Freelance Developer",
         "date": "Aug 2015 - Feb 2016",

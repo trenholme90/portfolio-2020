@@ -35,19 +35,19 @@
         <hr class="hide-desktop" />
       </section>
       <section class="section section--full flex--column">
-        <Slider :sliderImages="images" :key="images.length" />
+        <Slider :sliderImages="images" />
         <div class="full-width" style="height: 100px;">
-          <div class="flex--column flex--full-height">
+          <div class="flex--column flex--full-height flex--content-end">
             <footer>
               <Button
                 btnClass="btn btn--secondary"
                 btnTxt="Previous"
-                :btnLink="pageFrom.path"
+                :btnLink="previousRoute"
               />
               <Button
                 btnClass="btn btn--primary"
                 btnTxt="Next"
-                :btnLink="pageTo.path"
+                :btnLink="nextRoute"
 
               />
             </footer>
@@ -78,21 +78,16 @@ export default {
       text: "",
       skills: [],
       images: [],
-      pageTo: "",
-      pageFrom: ""
+      nextRoute: "",
+      previousRoute: ""
     };
   },
   beforeMount() {
     this.dataHandler();
   },
-  beforeUpdate () {
-    this.dataHandler();
-  },
   watch: {
-    $route(to, from) {
-      this.pageTo = to
-      this.pageFrom = from
-      console.log(this.pageTo, this.pageFrom)
+    $route() {
+      this.dataHandler();
     }
   },
   methods: {
@@ -100,14 +95,19 @@ export default {
       for (let item in Schema) {
         if (Object.hasOwnProperty.call(Schema, item)) {
           const pageName = Schema[item].page,
-                currentRoute = this.$route.params.id;
+            index = Schema[item].index,
+            role = Schema[item].role,
+            date = Schema[item].date,
+            text = Schema[item].text,
+            skills = Schema[item].skills,
+            images = Schema[item].images,
+            currentRoute = this.$route.params.id;
+
+          let currentRouteIndex,
+              nextRouteIndex,
+              previousRouteIndex;
 
           if (pageName === currentRoute) {
-            const role = Schema[item].role,
-                  date = Schema[item].date,
-                  text = Schema[item].text,
-                  skills = Schema[item].skills,
-                  images = Schema[item].images;
 
             this.place = pageName;
             this.role = role;
@@ -115,9 +115,19 @@ export default {
             this.text = text;
             this.skills = skills;
             this.images = images;
+
+            currentRouteIndex = index;
+            nextRouteIndex = index + 1;
+            previousRouteIndex = index - 1;
+
+            this.setRoutes(currentRouteIndex, nextRouteIndex, previousRouteIndex);
           }
         }
       }
+    },
+    setRoutes: function(current, next, prev) {
+      console.log(current, next, prev)
+
     }
   }
 };
