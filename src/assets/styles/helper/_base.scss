@@ -60,6 +60,17 @@
         margin-right: $half-unit;
     }
 
+    &.is-disabled {
+        opacity: 0.3;
+        cursor: default;
+        border: $disabled-grey;
+
+        &:hover {
+            box-shadow: inherit;
+            @extend .default-trans;
+        }
+    }
+
     &--primary {
         border: 3px solid $primary-colour;
         background-color: $primary-colour;

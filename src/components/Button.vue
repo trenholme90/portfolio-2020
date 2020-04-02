@@ -1,7 +1,6 @@
 <template>
   <router-link
-    :to="{ link }"
-    :data-page="{ link }"
+    :to="{ btnLink }"
     class="btn__container"
   >
     <button :class="clss">{{ txt }}</button>
@@ -18,6 +17,9 @@ export default {
       txt: this.btnTxt,
       link: this.btnLink
     };
-  }
+  },
+  beforeRouteEnter() {
+    console.log(this.btnLink)
+  } 
 };
 </script>

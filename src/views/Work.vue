@@ -42,12 +42,12 @@
               <Button
                 btnClass="btn btn--secondary"
                 btnTxt="Previous"
-                :btnLink="previousRoute"
+                :btnLink="`/work/${previousRoute}`"
               />
               <Button
                 btnClass="btn btn--primary"
                 btnTxt="Next"
-                :btnLink="nextRoute"
+                :btnLink="`/work/${nextRoute}`"
 
               />
             </footer>
@@ -79,15 +79,22 @@ export default {
       skills: [],
       images: [],
       nextRoute: "",
-      previousRoute: ""
+      previousRoute: "",
+      currentRouteIndex: "",
+      nextRouteIndex: "",
+      previousRouteIndex: ""
     };
   },
   beforeMount() {
     this.dataHandler();
   },
+  mounted() {
+    this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
+  },
   watch: {
     $route() {
       this.dataHandler();
+      this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
     }
   },
   methods: {
@@ -95,40 +102,68 @@ export default {
       for (let item in Schema) {
         if (Object.hasOwnProperty.call(Schema, item)) {
           const pageName = Schema[item].page,
-            index = Schema[item].index,
-            role = Schema[item].role,
-            date = Schema[item].date,
-            text = Schema[item].text,
-            skills = Schema[item].skills,
-            images = Schema[item].images,
-            currentRoute = this.$route.params.id;
-
-          let currentRouteIndex,
-              nextRouteIndex,
-              previousRouteIndex;
+                index = Schema[item].index,
+                role = Schema[item].role,
+                date = Schema[item].date,
+                text = Schema[item].text,
+                skills = Schema[item].skills,
+                images = Schema[item].images,
+                currentRoute = this.$route.params.id;
 
           if (pageName === currentRoute) {
-
             this.place = pageName;
             this.role = role;
             this.date = date;
             this.text = text;
             this.skills = skills;
             this.images = images;
-
-            currentRouteIndex = index;
-            nextRouteIndex = index + 1;
-            previousRouteIndex = index - 1;
-
-            this.setRoutes(currentRouteIndex, nextRouteIndex, previousRouteIndex);
+            this.currentRouteIndex = index;
+            this.nextRouteIndex = index + 1;
+            this.previousRouteIndex = index - 1;
           }
         }
       }
     },
     setRoutes: function(current, next, prev) {
       console.log(current, next, prev)
+      for (let item in Schema) {
+        if (Object.hasOwnProperty.call(Schema, item)) {
+          const pageName = Schema[item].page,
+                index = Schema[item].index,
+                nextBtn = document.querySelector('.btn--primary'),
+                prevBtn = document.querySelector('.btn--secondary'),
+                maxIndexinSchema = Object.keys(Schema).length - 1;
 
-    }
+          //this.applyRoutes(index, target, pageName, btn)
+          console.log(pageName, index)
+          console.log(index === next, this.nextRoute.length === 0)
+          if (index === next && this.nextRoute.length === 0) {
+            console.log('index is next')
+            if (next <= maxIndexinSchema) {
+              console.log('next is less than length')
+              this.nextRoute = pageName;
+            }
+          } else if (current === maxIndexinSchema) {
+              console.log('current is equal to length')
+              nextBtn.classList.add('is-disabled')
+          }
+
+          if(index === prev && this.previousRoute.length === 0) {
+            console.log('index is prev')
+            if (prev >= 0) {
+              console.log('prev is greater than 0')
+              this.previousRoute = pageName;
+            }
+          } else if(prev < 0 && this.previousRoute.length === 0) {
+              console.log('prev is less than 0')
+              prevBtn.classList.add('is-disabled')
+          }
+        }
+      }
+    },
+    // applyRoutes: function(index, targetIndex, pageName, btn) {
+
+    // }
   }
 };
 </script>
