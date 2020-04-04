@@ -48,6 +48,11 @@ export default {
       isOpen: false
     };
   },
+  watch: {
+    $route() {
+      this.isOpen = false;
+    }
+  },
   methods: {
     toggleMenu: function() {
       this.isOpen ? (this.isOpen = false) : (this.isOpen = true);
