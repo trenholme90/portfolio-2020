@@ -20,7 +20,7 @@
               <Button
                 btnClass="btn btn--primary"
                 btnTxt="Experience"
-                btnLink="/work"
+                btnLink="/work/Jet2"
               />
               <Button
                 btnClass="btn btn--secondary"

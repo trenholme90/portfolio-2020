@@ -1,25 +1,24 @@
 <template>
-  <router-link
-    :to="{ btnLink }"
-    class="btn__container"
-  >
-    <button :class="clss">{{ txt }}</button>
-  </router-link>
+  <div class="btn__container" v-on:click="eventHandler">
+    <button :class="btnClass">{{ btnTxt }}</button>
+  </div>
 </template>
 
 <script>
 export default {
   name: "Button",
-  props: ["btnClass", "btnTxt", "btnLink"],
-  data: function() {
-    return {
-      clss: this.btnClass,
-      txt: this.btnTxt,
-      link: this.btnLink
-    };
-  },
-  beforeRouteEnter() {
-    console.log(this.btnLink)
-  } 
+  props: ["btnClass", "btnTxt", "btnLink", "isDisabled"],
+  methods: {
+    eventHandler: function() {
+      const vm = this,
+            $this = this.$el,
+            btn = $this.querySelector('.btn')
+
+      if(!btn.classList.contains('is-disabled')) {
+        vm.$router.push( { path: vm.btnLink} )
+        $this.removeEventListener('click', $this)
+      }
+    }
+  }
 };
 </script>

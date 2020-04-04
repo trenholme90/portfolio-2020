@@ -35,20 +35,23 @@
         <hr class="hide-desktop" />
       </section>
       <section class="section section--full flex--column">
-        <Slider :sliderImages="images" />
+        <Slider :sliderImages="images" :key="images.length"/>
         <div class="full-width" style="height: 100px;">
-          <div class="flex--column flex--full-height flex--content-end">
+          <div class="flex--column flex--full-height">
             <footer>
               <Button
-                btnClass="btn btn--secondary"
+                :btnClass=" `btn btn--secondary ${prevIsDisabled}` "
+                :isDisabled ="prevIsDisabled"
                 btnTxt="Previous"
-                :btnLink="`/work/${previousRoute}`"
+                :btnLink=" `/work/${previousRoute}` "
+                :key="previousRouteIndex"
               />
               <Button
-                btnClass="btn btn--primary"
+                :btnClass="`btn btn--primary ${nextIsDisabled}`"
+                :isDisabled ="nextIsDisabled"
                 btnTxt="Next"
-                :btnLink="`/work/${nextRoute}`"
-
+                :btnLink=" `/work/${nextRoute}` "
+                :key="nextRouteIndex"
               />
             </footer>
           </div>
@@ -82,7 +85,9 @@ export default {
       previousRoute: "",
       currentRouteIndex: "",
       nextRouteIndex: "",
-      previousRouteIndex: ""
+      previousRouteIndex: "",
+      prevIsDisabled: false,
+      nextIsDisabled: false
     };
   },
   beforeMount() {
@@ -93,6 +98,7 @@ export default {
   },
   watch: {
     $route() {
+      this.checkScrollPosition()
       this.dataHandler();
       this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
     }
@@ -125,45 +131,61 @@ export default {
       }
     },
     setRoutes: function(current, next, prev) {
-      console.log(current, next, prev)
+      this.routeMatch(prev)
+      this.routeMatch(prev, next, current)
+    },
+    routeMatch: function(prev, next, current) {
       for (let item in Schema) {
         if (Object.hasOwnProperty.call(Schema, item)) {
-          const pageName = Schema[item].page,
-                index = Schema[item].index,
-                nextBtn = document.querySelector('.btn--primary'),
-                prevBtn = document.querySelector('.btn--secondary'),
-                maxIndexinSchema = Object.keys(Schema).length - 1;
+          const vm = this,
+                pageName = Schema[item].page,
+                index = Schema[item].index 
 
-          //this.applyRoutes(index, target, pageName, btn)
-          console.log(pageName, index)
-          console.log(index === next, this.nextRoute.length === 0)
-          if (index === next && this.nextRoute.length === 0) {
-            console.log('index is next')
-            if (next <= maxIndexinSchema) {
-              console.log('next is less than length')
-              this.nextRoute = pageName;
-            }
-          } else if (current === maxIndexinSchema) {
-              console.log('current is equal to length')
-              nextBtn.classList.add('is-disabled')
-          }
-
-          if(index === prev && this.previousRoute.length === 0) {
-            console.log('index is prev')
-            if (prev >= 0) {
-              console.log('prev is greater than 0')
-              this.previousRoute = pageName;
-            }
-          } else if(prev < 0 && this.previousRoute.length === 0) {
-              console.log('prev is less than 0')
-              prevBtn.classList.add('is-disabled')
+          if(next) {
+            const maxIndexinSchema = Object.keys(Schema).length - 1;
+            const nextRoute = this.findNextRoute(vm, index, current, next, maxIndexinSchema, pageName)
+            if(nextRoute) return this.nextRoute = nextRoute
+          } else {
+            const previousRoute = this.findPreviousRoute(vm, index, prev, pageName)
+            if(previousRoute) return this.previousRoute = previousRoute
           }
         }
       }
     },
-    // applyRoutes: function(index, targetIndex, pageName, btn) {
+    findPreviousRoute: function (vm, index, prev, pageName) {
+      const target = []
 
-    // }
+      this.prevIsDisabled = ""
+      if (index === prev && prev >= 0) {
+        target.push(pageName);
+      } else if (prev < 0) {
+          this.prevIsDisabled = 'is-disabled'
+      }
+      return target[0]
+    },
+    findNextRoute: function(vm, index, current, next, maxIndexinSchema, pageName) {
+      const target = []
+
+      this.nextIsDisabled = ""
+      if (index === next && next <= maxIndexinSchema) {
+        target.push(pageName);
+      } else if (current === maxIndexinSchema) {
+          this.nextIsDisabled = 'is-disabled'
+      }
+      return target[0]
+    },
+    checkScrollPosition: function() {
+      const header = document.querySelector('.header'),
+            headerPos = header.getBoundingClientRect().top,
+            scrollElement = document.querySelector('#app'),
+            scrollOptions = {
+              top: 0, 
+              left: 0,
+              behavior: 'smooth'
+            }
+
+      if(headerPos < 0) scrollElement.scrollTo(scrollOptions);
+    }
   }
 };
 </script>
