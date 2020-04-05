@@ -1,25 +1,70 @@
 .logo-icon {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: $base-unit;
-    width: 50px;
+    margin-right: $double-unit;
+    margin-bottom: $double-unit;
+    width: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+    @extend .default-trans;
 
     &:last-of-type {
         margin-right: 0;
     }
 
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 90%;
+        height: 90%;
+        border-radius: 50%;
+        border: 3px solid white;
+        @extend .default-trans;
+    }
+
+    &:hover {
+        
+        &:before {
+            width: 130%;
+            height: 130%;
+            border: 3px solid $primary-colour;
+            @extend .default-trans;
+        }
+
+        svg {
+            fill: $primary-colour;
+            // border: 1px solid $tertiary-colour;
+            @extend .default-trans;
+        }
+    }
+
+    &--large {
+        width: 70px;
+    }
+
     svg {
+        position: relative;
         fill: $white;
+        // border: 1px solid $white;
+        @extend .default-trans;
     }
     
     &__container {
         display: none;
         flex: 1;
-        margin-bottom: $double-unit;
 
-        @media screen and (min-width: 1200px) {
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
             display: flex;
+            justify-content: center;
+            margin-top: $double-unit;
+        }
+
+        @media screen and (min-width: 1025px) {
+            display: flex;
+            margin-bottom: $double-unit;
         }
 
         .menu & {
@@ -33,5 +78,8 @@
             }
         }
 
+        &--show-mobile {
+            display: flex;
+        }
     }
 }

@@ -123,7 +123,7 @@
         text-decoration: none;
     
         &:last-of-type {
-            margin-bottom: 0;
+            margin-bottom: $base-unit;
         }
 
         @media screen and (min-width: 768px) {
@@ -132,6 +132,9 @@
             &:first-of-type {
                 margin-right: 1em;
             }
+        }
+        @media screen and (min-width: 1025px) {
+            margin-bottom: 0;
         }
 
     }
@@ -281,6 +284,42 @@
     }
 }
 
-.margin-right {
-    margin-right: $base-unit;
+.margin {
+    &-top {
+        margin-top: $base-unit;
+    }
+
+    &-right {
+        margin-right: $base-unit;
+    }
 }
+
+.padding {
+    padding: $base-unit;
+}
+
+.link {
+    position: relative;
+    color: $primary-colour;
+    text-decoration: none;
+
+    &:before {
+        content: "";
+        position: absolute;
+        border-top: 3px solid $primary-colour;
+        width: 0;
+        bottom: 0;
+        left: 50%;
+        @extend .default-trans;
+    }
+
+    &:hover {
+        &:before {
+            left: 0;
+            width: 100%;
+            @extend .default-trans;
+        }
+    }
+}
+
+

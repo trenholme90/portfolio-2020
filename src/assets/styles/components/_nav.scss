@@ -7,7 +7,7 @@
     .menu {
         position: fixed;
         display: flex;
-        background: #6b386b;
+        background: $tertiary-colour;
         width: 100%;
         height: 100vh;
         top: 0;
@@ -81,6 +81,9 @@
 
             &.router-link-exact-active,
             &:hover {
+                color: $primary-colour;
+                @extend .default-trans;
+
                 &:before {
                     left: 0;
                     width: 100%;
