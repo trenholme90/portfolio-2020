@@ -106,10 +106,12 @@
             padding: 0;
             width: 50%;
             font-size: 1.5em;
+            text-align: center;
 
             @media screen and (min-width: 768px) {
                 width: calc(50% - 80px);
                 margin-left: 80px;
+                text-align: left;
             }
 
             @media screen and (min-width: 1025px) {

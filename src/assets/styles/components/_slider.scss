@@ -67,11 +67,27 @@
 
     &__dot {
         position: relative;
-        width: 15px;
-        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 12px;
+        height: 12px;
         border-radius: 15px;
         margin-right: 3em;
         background: white;
+        cursor: pointer;
+        @extend .default-trans;
+
+        &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            border: 3px solid $white;
+            @extend .default-trans;
+        }
 
         @media screen and (min-width: 768px) {
             margin-bottom: 3em;
@@ -88,17 +104,15 @@
 
         &.is-active {
             background-color: #ca2f9c;
+            width: 15px;
+            height: 15px;
+            @extend .default-trans;
 
             &:before {
-                content: "";
-                position: absolute;
-                top: -20px;
-                right: -20px;
-                display: block;
                 width: 50px;
                 height: 50px;
-                border-radius: 50px;
-                border: 3px solid #ca2f9c;
+                border: 3px solid $primary-colour;
+                @extend .default-trans;
             }
         }
 
