@@ -28,6 +28,7 @@
     }
 
     &__img {
+        position: relative;
         height: 100%;
         background-position: top center;
         background-size: cover;
@@ -41,6 +42,23 @@
         //     animation: fadeToggle 1s;
         //     animation-fill-mode: forwards;
         // }
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: -40px;
+            right: -40px;
+            background-color: $primary-colour;
+            z-index: -1;
+            opacity: .2;
+            border-radius: 10px;
+
+            @media screen and (min-width: 1025px) {
+                left: -40px;
+            }
+        }
     }
 
     &__nav {
@@ -56,12 +74,9 @@
             flex-direction: column;
             order: 1;
             margin-bottom: 0;
+            margin-right: 0;
             height: 90%;
             align-items: flex-end;
-        }
-
-        @media screen and (min-width: 768px) {
-            margin-right: 0;
         }
     }
 
