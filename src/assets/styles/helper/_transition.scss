@@ -35,6 +35,38 @@
 
 /* FadeY End */
 
+/* FadeY-no-opacity transition */
+
+.FadeY-low-opacity-enter-active, .FadeY-low-opacity-leave-active {
+    transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+}
+
+.FadeY-low-opacity-enter-active {
+    transition-delay: .5s;
+}
+
+.FadeY-low-opacity-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.FadeY-low-opacity-enter-to {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+
+.FadeY-low-opacity-leave {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+
+.FadeY-low-opacity-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* FadeY-low-opacity End */
+
 /* revealDown transition */
 
     .revealDown-enter-active, .revealDown-leave-active {

@@ -116,13 +116,19 @@ export default {
     this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
     console.log('mounted')
     this.animate = true
+    console.log(this.$route.name + (this.$route.params.id || ''))   
+  },
+  updated () {
+    console.log('updated')
+    this.animate = true
   },
   watch: {
     $route() {
       this.checkScrollPosition();
       this.dataHandler();
       this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
-      this.animate = true
+      console.log('watch updated')
+      this.animate = false
     }
   },
   methods: {

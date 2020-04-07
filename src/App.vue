@@ -4,7 +4,7 @@
     <div class="bg-gradient bg-gradient--bottom"></div>
     <Header />
     <transition name="fadeY">
-      <router-view />
+      <router-view :key="$route.name + ($route.params.id || '')"/>
     </transition>
   </div>
 </template>
