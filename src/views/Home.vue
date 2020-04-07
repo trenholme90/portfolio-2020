@@ -3,40 +3,62 @@
     <div class="page-container">
       <section class="section section--info flex--column">
         <div class="content-block content-block--center">
-          <div class="title text-block">
-            <h1>James Trenholme</h1>
+          <transition name="revealDown" >
+            <div class="title text-block" v-show="animate">
+              <transition name="revealUp" >
+                <h1 v-show="animate">James Trenholme</h1>
+              </transition>
+            </div>
+          </transition>
+          <div class="margin-top margin-bottom">
+            <transition name="revealDown" >
+              <div class="subtitle text-block" v-show="animate">
+                <transition name="revealUp" >
+                  <h1 v-show="animate">Front-end Developer</h1>
+                </transition>
+              </div>
+            </transition>
           </div>
-          <div class="subtitle text-block">
-            <h1>Front-end Developer</h1>
-          </div>
-          <p>
-            A front-end developer from Leeds, that helps build exciting content
-            and user stories.
-          </p>
+          <transition name="fadeY" >
+            <p v-show="animate">
+              A front-end developer from Leeds, that helps build exciting content
+              and user stories.
+            </p>
+          </transition>
         </div>
         <div class="flex--full-height full-width">
           <div class="flex--column flex--content-end flex-desktop--content-center">
             <footer>
-              <Button
-                btnClass="btn btn--primary"
-                btnTxt="Experience"
-                btnLink="/work/Jet2"
-              />
-              <Button
-                btnClass="btn btn--secondary"
-                btnTxt="Contact"
-                btnLink="/contact"
-              />
+              <transition name="fadeY" >
+                <Button
+                  btnClass="btn btn--primary"
+                  btnTxt="Experience"
+                  btnLink="/work/Jet2"
+                  v-show="animate"
+                />
+              </transition>
+              <transition name="fadeY" >
+                <Button
+                  btnClass="btn btn--secondary"
+                  btnTxt="Contact"
+                  btnLink="/contact"
+                  v-show="animate"
+                />
+              </transition>
             </footer>
           </div>
         </div>
-          <div class="logo-icon__container">
+        <transition name="fadeY" >
+          <div class="logo-icon__container" v-show="animate">
             <Github clss="logo-icon" />
             <Twitter clss="logo-icon" />
             <Email clss="logo-icon" />
           </div>
+        </transition>
       </section>
-      <div class="section--hero__img"></div>
+      <transition name="fadeY" >
+        <div class="section--hero__img" v-show="animate"></div>
+      </transition>
     </div>
   </div>
 </template>
@@ -53,6 +75,14 @@ export default {
     Github,
     Twitter,
     Email
+  },
+  data: function() {
+    return {
+      animate: false
+    };
+  },
+  mounted() {
+    this.animate = true
   }
 };
 </script>

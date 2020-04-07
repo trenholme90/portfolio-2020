@@ -155,10 +155,7 @@
     background-color: $white;
     color: black;
     border-radius: 5px;
-
-    &:last-of-type {
-        margin-bottom: $base-unit;
-    }
+    overflow-y: hidden;
 }
 
 .app-background-image {

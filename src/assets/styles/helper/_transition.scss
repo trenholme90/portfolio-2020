@@ -3,42 +3,90 @@
     transition-timing-function: cubic-bezier(0.52, 0.01, 0.16, 0.75);
 }
 
-@keyframes fadeDown {
-    from   { 
+/* FadeY transition */
+
+    .fadeY-enter-active, .fadeY-leave-active {
+        transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+    }
+
+    .fadeY-enter-active {
+        transition-delay: .5s;
+    }
+
+    .fadeY-enter {
         opacity: 0;
-        margin-top: -50px;
+        transform: translateY(-20px);
     }
 
-    to { 
+    .fadeY-enter-to {
         opacity: 1;
-        margin-top: 0; 
+        transform: translateY(0);
     }
-}
 
-@keyframes fadeToggle {
-    from   { 
+    .fadeY-leave {
         opacity: 1;
-        margin-top: 0;
+        transform: translateY(0);
     }
 
-    50% { 
+    .fadeY-leave-to {
         opacity: 0;
-        margin-top: -50px; 
+        transform: translateY(-20px);
     }
 
-    to { 
-        opacity: 1;
-        margin-top: 0; 
-    }
-}
+/* FadeY End */
 
-.fade-enter-active, .fade-leave-active {
-    opacity: 1;
-    margin-top: 0;
-    transition: all 0.25s ease-out;
-  }
-  
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-    margin-top: -50px; 
-  }
+/* revealDown transition */
+
+    .revealDown-enter-active, .revealDown-leave-active {
+        transition: height .5s ease-in-out;
+    }
+
+    .revealDown-enter-active {
+        transition-delay: .5s;
+    }
+
+    .revealDown-enter {
+        height: 0;
+    }
+
+    .revealDown-enter-to {
+        height: 100%;
+    }
+
+    .revealDown-leave {
+        height: 100%;
+    }
+
+    .revealDown-leave-to {
+        height: 0;
+    }
+
+/* revealDown End */
+
+/* revealUp transition */
+
+    .revealUp-enter-active, .revealUp-leave-active {
+        transition: transform .5s ease-in-out;
+    }
+
+    .revealUp-enter-active {
+        transition-delay: 1s;
+    }
+
+    .revealUp-enter {
+        transform: translateY(50px);
+    }
+
+    .revealUp-enter-to {
+        transform: translateY(0);
+    }
+
+    .revealUp-leave {
+        transform: translateY(0);
+    }
+
+    .revealUp-leave-to {
+        transform: translateY(50px);
+    }
+
+/* revealUp End */
