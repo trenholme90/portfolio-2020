@@ -36,7 +36,7 @@
             width: 100%;
             height: calc(100vh - 130px); // 130 is height of header
             max-width: 400px;
-            @extend .bottom-layer;
+            //opacity: .7;
 
             @media screen and (min-width: 768px) {
                 max-width: 500px;
@@ -155,16 +155,16 @@
     background-color: $white;
     color: black;
     border-radius: 5px;
-
-    &:last-of-type {
-        margin-bottom: $base-unit;
-    }
+    overflow-y: hidden;
 }
 
 .app-background-image {
     background-size: cover;
     opacity: .4;
     max-width: none;
+    top: 0;
+    z-index: -2;
+    height: 100vh;
 }
 
 .asda-img {

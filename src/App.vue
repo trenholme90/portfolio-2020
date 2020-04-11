@@ -3,7 +3,9 @@
     <div class="bg-gradient"></div>
     <div class="bg-gradient bg-gradient--bottom"></div>
     <Header />
-    <router-view />
+    <transition name="fadeY">
+      <router-view :key="$route.name + ($route.params.id || '')"/>
+    </transition>
   </div>
 </template>
 

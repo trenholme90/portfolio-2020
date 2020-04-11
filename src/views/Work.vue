@@ -1,64 +1,82 @@
 <template>
-  <div data-page-type="work">
+  <div data-page-type="work" :key="place">
     <div class="page-container">
-      <section class="section section--full flex--column">
+      <section class="section section--full flex--column flex-desktop--content-center">
         <div class="content-block content-block--center">
-          <div class="title text-block">
-            <h1>{{ role }}</h1>
-          </div>
-          <div class="flex" style="">
-            <div class="subtitle text-block margin-right">
-              <h1>{{ place }}</h1>
+          <transition name="revealDown">
+            <div class="title text-block" v-show="animate">
+              <transition name="revealUp">
+                <h1 v-show="animate">{{ role }}</h1>
+              </transition>
             </div>
-            <div class="subtitle text-block">
-              <h1 class="date">{{ date }}</h1>
-            </div>
+          </transition>
+          <div class="flex margin-top margin-bottom">
+            <transition name="revealDown">
+              <div class="subtitle text-block margin-right" v-show="animate">
+                <transition name="revealUp">
+                  <h1 v-show="animate">{{ place }}</h1>
+                </transition>
+              </div>
+            </transition>
+            <transition name="revealDown">
+              <div class="subtitle text-block" v-show="animate">
+                <transition name="revealUp">
+                  <h1 class="date" v-show="animate">{{ date }}</h1>
+                </transition>
+              </div>
+            </transition>
           </div>
         </div>
         <div class="content-block">
-          <p>
-            {{ text }}
-          </p>
+          <transition name="fadeY">
+            <p v-show="animate">
+              {{ text }}
+            </p>
+          </transition>
         </div>
-        <div class="content-block content-block--full content-block--center">
-          <h1>Skills</h1>
-          <ul class="content-block__list">
-            <li
-              v-for="skill in skills"
-              :key="skill.index"
-              class="content-block__list-item"
-            >
-              {{ skill }}
-            </li>
-          </ul>
-        </div>
+        <transition name="fadeY">
+          <div class="content-block content-block--full content-block--center" v-show="animate">
+            <h1>Skills</h1>
+            <ul class="content-block__list">
+              <li
+                v-for="skill in skills"
+                :key="skill.index"
+                class="content-block__list-item"
+              >
+                {{ skill }}
+              </li>
+            </ul>
+          </div>
+        </transition>
         <hr class="hide-desktop" />
       </section>
-      <section class="section section--full flex--column">
-        <Slider :sliderImages="images" :key="images.length"/>
-        <div class="full-width" style="height: 100px;">
-          <div class="flex--column flex--full-height">
-            <footer>
-              <Button
-                :btnClass=" `btn btn--secondary ${prevIsDisabled}` "
-                :isDisabled ="prevIsDisabled"
-                btnTxt="Previous"
-                :btnLink=" `/work/${previousRoute}` "
-                :key="previousRouteIndex"
-              />
-              <Button
-                :btnClass="`btn btn--primary ${nextIsDisabled}`"
-                :isDisabled ="nextIsDisabled"
-                btnTxt="Next"
-                :btnLink=" `/work/${nextRoute}` "
-                :key="nextRouteIndex"
-              />
-            </footer>
+      <transition name="fadeY">
+        <section class="section section--full flex--column" v-show="animate">
+          <Slider :sliderImages="images" :key="images.length"/>
+          <div class="full-width" style="height: 100px;">
+            <div class="flex--column flex--full-height">
+              <footer>
+                <Button
+                  :btnClass=" `btn btn--secondary ${prevIsDisabled}` "
+                  :isDisabled ="prevIsDisabled"
+                  btnTxt="Previous"
+                  :btnLink=" `/work/${previousRoute}` "
+                  :key="previousRouteIndex"
+                />
+                <Button
+                  :btnClass="`btn btn--primary ${nextIsDisabled}`"
+                  :isDisabled ="nextIsDisabled"
+                  btnTxt="Next"
+                  :btnLink=" `/work/${nextRoute}` "
+                  :key="nextRouteIndex"
+                />
+              </footer>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </transition>
     </div>
-    <!-- <div class="section--hero__img app-background-image asda-img"></div> -->
+    <div class="section--hero__img app-background-image asda-img"></div>
   </div>
 </template>
 
@@ -87,18 +105,21 @@ export default {
       nextRouteIndex: "",
       previousRouteIndex: "",
       prevIsDisabled: false,
-      nextIsDisabled: false
+      nextIsDisabled: false,
+      animate: false
     };
   },
   beforeMount() {
     this.dataHandler();
   },
   mounted() {
+    this.checkScrollPosition();
     this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
+    this.animate = true
   },
   watch: {
     $route() {
-      this.checkScrollPosition()
+      this.checkScrollPosition();
       this.dataHandler();
       this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
     }
