@@ -19,26 +19,26 @@ export default
         "text": "Using key web technologies, I created landing pages for branded advertisements on the groceries website (click through the gallery to see which brands). This is also alongside constructing and editing imagery for branded advertisements adn uploading them to the CMS.",
         "skills": ["HTML", "CSS", "Javascript", "Photoshop", "Illustrator"],
         "images": ["https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg",
-                "https://trenholme90.github.io/images/Bacardi-screenshot.jpg"]
+                "https://trenholme90.github.io/images/Bacardi-screenshot.jpg"],
 
     },
     "item3": {
         "index": 2,
-        "page": "Github",
-        "role": "Front-end Developer",
-        "date": "Spare time",
-        "text": "A place to see my work outside of work. These are side projects that I was inspired to make and are a variety of different projects. Feel free to pull them down and take a look.",
-        "skills": ["Node.js", "Vue.js", "Web push", "API", "Firebase", "Sass", "Git", "JSON"],
-        "images": ["https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg",
-                "https://trenholme90.github.io/images/Bacardi-screenshot.jpg"]
-    },
-    "item4": {
-        "index": 3,
         "page": "Loko Pet Apparel",
         "role": "Freelance Developer",
         "date": "Aug 2015 - Feb 2016",
         "text": "A WordPress based eCommerce store for dog apparel. Created my own sub-theme from an existing theme and modified the front end HTML and styles to fit the breif.",
         "skills": ["HTML", "CSS", "WordPress", "WooCommerce", "Javascript"],
+        "images": ["https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg",
+                "https://trenholme90.github.io/images/Bacardi-screenshot.jpg"]
+    },
+    "item4": {
+        "index": 3,
+        "page": "Github",
+        "role": "Front-end Developer",
+        "date": "Spare time",
+        "text": "A place to see my work outside of work. These are side projects that I was inspired to make and are a variety of different projects. Feel free to pull them down and take a look.",
+        "skills": ["Node.js", "Vue.js", "Web push", "API", "Firebase", "Sass", "Git", "JSON"],
         "images": ["https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg",
                 "https://trenholme90.github.io/images/Bacardi-screenshot.jpg"]
     }

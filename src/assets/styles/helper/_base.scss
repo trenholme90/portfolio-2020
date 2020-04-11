@@ -267,6 +267,10 @@
     border-radius: 20px;
 }
 
+.hidden {
+    display: none;
+}
+
 .hide-mobile {
     @media screen and (max-width: 767px) {
         display: none !important;

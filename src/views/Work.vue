@@ -76,7 +76,6 @@
         </section>
       </transition>
     </div>
-    <div class="section--hero__img app-background-image asda-img"></div>
   </div>
 </template>
 
@@ -98,6 +97,7 @@ export default {
       date: "",
       text: "",
       skills: [],
+      heroImage: '',
       images: [],
       nextRoute: "",
       previousRoute: "",
@@ -114,12 +114,14 @@ export default {
   },
   mounted() {
     this.checkScrollPosition();
+    this.$emit('background', this.heroImage)
     this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
     this.animate = true
   },
   watch: {
     $route() {
       this.checkScrollPosition();
+      this.$emit('background', this.heroImage)
       this.dataHandler();
       this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
     }
@@ -143,6 +145,7 @@ export default {
             this.date = date;
             this.text = text;
             this.skills = skills;
+            this.heroImage = this.formatName(pageName);
             this.images = images;
             this.currentRouteIndex = index;
             this.nextRouteIndex = index + 1;
@@ -206,6 +209,10 @@ export default {
             }
 
       if(headerPos < 0) scrollElement.scrollTo(scrollOptions);
+    },
+    formatName: function(pageName) {
+      const name = pageName.replace(/\s+/g, '-').toLowerCase();
+      return name
     }
   }
 };

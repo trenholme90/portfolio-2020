@@ -82,16 +82,8 @@ export default {
     };
   },
   mounted() {
+    this.$emit('background', "")
     this.animate = true
-  },
-  beforeRouteLeave (to, from, next) {
-    console.log('beforeRouteLeave', to, from)
-    this.animate = false
-    next()
-  },
-  beforeDestroy() {
-    console.log('beforeDestroy')
-    this.animate = false
   }
 };
 </script>
