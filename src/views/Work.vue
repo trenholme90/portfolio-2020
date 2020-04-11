@@ -1,7 +1,7 @@
 <template>
   <div data-page-type="work" :key="place">
     <div class="page-container">
-      <section class="section section--full flex--column">
+      <section class="section section--full flex--column flex-desktop--content-center">
         <div class="content-block content-block--center">
           <transition name="revealDown">
             <div class="title text-block" v-show="animate">
@@ -76,7 +76,7 @@
         </section>
       </transition>
     </div>
-    <!-- <div class="section--hero__img app-background-image asda-img"></div> -->
+    <div class="section--hero__img app-background-image asda-img"></div>
   </div>
 </template>
 
@@ -113,13 +113,8 @@ export default {
     this.dataHandler();
   },
   mounted() {
+    this.checkScrollPosition();
     this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
-    console.log('mounted')
-    this.animate = true
-    console.log(this.$route.name + (this.$route.params.id || ''))   
-  },
-  updated () {
-    console.log('updated')
     this.animate = true
   },
   watch: {
@@ -127,8 +122,6 @@ export default {
       this.checkScrollPosition();
       this.dataHandler();
       this.setRoutes(this.currentRouteIndex, this.nextRouteIndex, this.previousRouteIndex);
-      console.log('watch updated')
-      this.animate = false
     }
   },
   methods: {

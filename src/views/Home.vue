@@ -56,7 +56,7 @@
           </div>
         </transition>
       </section>
-      <transition name="FadeY-low-opacity" >
+      <transition name="FadeYLowOpacity" >
         <div class="section--hero__img" v-show="animate"></div>
       </transition>
     </div>
@@ -88,6 +88,10 @@ export default {
     console.log('beforeRouteLeave', to, from)
     this.animate = false
     next()
+  },
+  beforeDestroy() {
+    console.log('beforeDestroy')
+    this.animate = false
   }
 };
 </script>

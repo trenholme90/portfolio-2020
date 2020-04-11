@@ -42,9 +42,9 @@ export default {
     };
   },
   mounted() {
-    const dots = document.querySelectorAll(".slider__dot"),
-          previousArrow = document.querySelector('.chevron--left'),
-          nextArrow = document.querySelector('.chevron--right'),
+    const dots = this.$el.querySelectorAll(".slider__dot"),
+          previousArrow = this.$el.querySelector('.chevron--left'),
+          nextArrow = this.$el.querySelector('.chevron--right'),
           arrows = [previousArrow, nextArrow],
           vm = this;
 
@@ -85,9 +85,9 @@ export default {
     },
 
     changeImgSrc: (targetSrc, targetIndex, vm, dots, isNextOrPrevious) => {
-      const sliderImg = document.querySelector(".slider__img"),
-            previousArrow = document.querySelector('.chevron--left'),
-            nextArrow = document.querySelector('.chevron--right'),
+      const sliderImg = vm.$el.querySelector(".slider__img"),
+            previousArrow = vm.$el.querySelector('.chevron--left'),
+            nextArrow = vm.$el.querySelector('.chevron--right'),
             arrows = [previousArrow, nextArrow],
             imgQuantIndex = parseInt(vm.imgQuant) - 1
             
@@ -147,7 +147,6 @@ export default {
         if (el.classList.contains(clss)) el.classList.remove(clss);
       }
     }
-
   }
 };
 </script>

@@ -35,37 +35,38 @@
 
 /* FadeY End */
 
-/* FadeY-no-opacity transition */
+/* FadeYLowOpacity transition */
 
-.FadeY-low-opacity-enter-active, .FadeY-low-opacity-leave-active {
+.FadeYLowOpacity-enter-active, .FadeYLowOpacity-leave-active {
     transition: opacity .5s ease-in-out, transform .5s ease-in-out;
 }
 
-.FadeY-low-opacity-enter-active {
+.FadeYLowOpacity-enter-active {
     transition-delay: .5s;
 }
 
-.FadeY-low-opacity-enter {
+.FadeYLowOpacity-enter {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: none;
+    z-index: -2;
 }
 
-.FadeY-low-opacity-enter-to {
+.FadeYLowOpacity-enter-to {
     opacity: 0.8;
-    transform: translateY(0);
+    transform: none;
 }
 
-.FadeY-low-opacity-leave {
+.FadeYLowOpacity-leave {
     opacity: 0.8;
-    transform: translateY(0);
+    transform: none;
 }
 
-.FadeY-low-opacity-leave-to {
+.FadeYLowOpacity-leave-to {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: none;
 }
 
-/* FadeY-low-opacity End */
+/* FadeYLowOpacity End */
 
 /* revealDown transition */
 

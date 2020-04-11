@@ -3,7 +3,7 @@
 
 #app {
     height: 100vh;
-    overflow: auto;
+    overflow-y: scroll;
     box-sizing: border-box;
 }
 
@@ -252,7 +252,6 @@
         @media screen and (min-width: 1025px) {
             &--content-center {
                 display: flex;
-                flex: 1;
                 align-items: center;
                 justify-content: center;
             }
