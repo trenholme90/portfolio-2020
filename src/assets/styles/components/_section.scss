@@ -4,6 +4,8 @@
     width: 100%;
     padding: 0 $base-unit;
     box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(-20px);
 
     @media screen and (min-width: 768px) {
         padding: $double-unit;
@@ -156,6 +158,7 @@
     color: black;
     border-radius: 5px;
     overflow-y: hidden;
+    height: 0;
 }
 
 .app-background-image {

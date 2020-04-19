@@ -1,64 +1,45 @@
 <template>
-  <div data-page-type="home">
+  <div data-page-type="home" :class="[{ 'animate-in': animate }, { 'animate-out': !animate }]">
+    <div class="swiper"></div>
     <div class="page-container">
       <section class="section section--info flex--column">
         <div class="content-block content-block--center">
-          <transition name="revealDown" >
-            <div class="title text-block" v-show="animate">
-              <transition name="revealUp" >
-                <h1 v-show="animate">James Trenholme</h1>
-              </transition>
-            </div>
-          </transition>
-          <div class="margin-top margin-bottom">
-            <transition name="revealDown" >
-              <div class="subtitle text-block" v-show="animate">
-                <transition name="revealUp" >
-                  <h1 v-show="animate">Front-end Developer</h1>
-                </transition>
-              </div>
-            </transition>
+          <div class="title text-block">
+            <h1>James Trenholme</h1>
           </div>
-          <transition name="fadeY" >
-            <p v-show="animate">
-              A front-end developer from Leeds, that helps build exciting content
-              and user stories.
-            </p>
-          </transition>
+          <div class="margin-top margin-bottom">
+            <div class="subtitle text-block">
+                <h1>Front-end Developer</h1>
+            </div>
+          </div>
+          <p>
+            A front-end developer from Leeds, that helps build exciting content
+            and user stories.
+          </p>
         </div>
         <div class="flex--full-height full-width">
           <div class="flex--column flex--content-end flex-desktop--content-center">
             <footer>
-              <transition name="fadeY" >
-                <Button
-                  btnClass="btn btn--primary"
-                  btnTxt="Experience"
-                  btnLink="/work/Jet2"
-                  v-show="animate"
-                />
-              </transition>
-              <transition name="fadeY" >
-                <Button
-                  btnClass="btn btn--secondary"
-                  btnTxt="Contact"
-                  btnLink="/contact"
-                  v-show="animate"
-                />
-              </transition>
+              <Button
+                btnClass="btn btn--primary"
+                btnTxt="Experience"
+                btnLink="/work/Jet2"
+              />
+              <Button
+                btnClass="btn btn--secondary"
+                btnTxt="Contact"
+                btnLink="/contact"
+              />
             </footer>
           </div>
         </div>
-        <transition name="fadeY" >
-          <div class="logo-icon__container" v-show="animate">
-            <Github clss="logo-icon" />
-            <Twitter clss="logo-icon" />
-            <Email clss="logo-icon" />
-          </div>
-        </transition>
-      </section>
-      <transition name="FadeYLowOpacity" >
-        <div class="section--hero__img" v-show="animate"></div>
-      </transition>
+        <div class="logo-icon__container">
+          <Github clss="logo-icon" />
+          <Twitter clss="logo-icon" />
+          <Email clss="logo-icon" />
+        </div>
+    </section>
+      <div class="section--hero__img"></div>
     </div>
   </div>
 </template>
@@ -82,8 +63,19 @@ export default {
     };
   },
   mounted() {
-    this.$emit('background', "")
-    this.animate = true
+    const swiper = document.querySelector('.swiper');
+    swiper.classList.add('hidden')
+    setTimeout(() => {
+      swiper.classList.remove('hidden')
+      this.animate = true
+    }, 100);
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log(to, from, next)
+    this.animate = false
+    setTimeout(() => {
+      next()
+    }, 1600);
   }
 };
 </script>

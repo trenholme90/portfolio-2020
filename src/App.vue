@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <transition name="fadeY">
-      <router-view :key="$route.name + ($route.params.id || '')" v-on:background="setBackground"/>
+    <transition mode="out-in">
+      <router-view :key="$route.name + ($route.params.id || '')" />
     </transition>
   </div>
 </template>

@@ -118,7 +118,7 @@
         }
 
         &.is-active {
-            background-color: #ca2f9c;
+            background-color: $primary-colour;
             width: 15px;
             height: 15px;
             @extend .default-trans;

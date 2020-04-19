@@ -3,7 +3,8 @@
 
 #app {
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     box-sizing: border-box;
 }
 
@@ -38,6 +39,7 @@
 
     h1 {
         font-size: 1.1em;
+        transform: translateY(50px);
     }
 }
 
@@ -84,7 +86,7 @@
             box-shadow: inset 0 0 50px $primary-colour,
             inset 20px 0 80px $secondary-colour,
             inset -20px 0 80px $primary-colour,
-            inset 20px 0 300px #ce73fd,
+            inset 20px 0 300px $primary-colour,
             inset -20px 0 300px $primary-colour,
             0 0 20px 1px $primary-colour,
             0px 0px 1px $primary-colour,
@@ -107,7 +109,7 @@
             box-shadow: inset 0 0 50px $secondary-colour,
             inset 20px 0 80px $secondary-colour,
             inset -20px 0 80px $secondary-colour,
-            inset 20px 0 300px #ce73fd,
+            inset 20px 0 300px $primary-colour,
             inset -20px 0 300px $secondary-colour,
             0 0 20px 1px $primary-colour,
             0px 0px 1px $primary-colour,
@@ -155,7 +157,7 @@
         bottom: 0;
         height: 100vh;
         display: block;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(79, 26, 132, 0.6));
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(79, 26, 132, 0.2));
         @extend .base-layer;
     }
 
