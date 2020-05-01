@@ -1,9 +1,9 @@
-@import "../helper/transition";
-
 .section {
     width: 100%;
     padding: 0 $base-unit;
     box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(-20px);
 
     @media screen and (min-width: 768px) {
         padding: $double-unit;
@@ -13,6 +13,10 @@
         width: 50%;
         margin-bottom: 0;
         padding-bottom: 0;
+
+        &:first-of-type {
+            padding-right: 3em;
+        }
     }
 
     &--info {
@@ -36,7 +40,7 @@
             width: 100%;
             height: calc(100vh - 130px); // 130 is height of header
             max-width: 400px;
-            //opacity: .7;
+            @extend .bottom-layer;
 
             @media screen and (min-width: 768px) {
                 max-width: 500px;
@@ -156,17 +160,30 @@
     color: black;
     border-radius: 5px;
     overflow-y: hidden;
+    height: 0;
 }
 
 .app-background-image {
     background-size: cover;
     opacity: .4;
     max-width: none;
-    top: 0;
-    z-index: -2;
-    height: 100vh;
+    z-index: -2;   
+    height: calc(100% + 130px);
+    top: -130px;
 }
 
-.asda-img {
-    background-image: url("https://www.prolificnorth.co.uk/sites/default/files/styles/lightbox_large/public/images/news/asda.jpg?itok=DQnSZGuE");
+.jet2 {
+    background-image: url("./assets/images/jet2.jpg");
+}
+
+.asda {
+    background-image: url("./assets/images/asda.jpg");
+}
+
+.loko-pet-apparel {
+    background-image: url("./assets/images/loko-pet-apparel.jpg");
+}
+
+.github {
+    background-image: url("./assets/images/github.jpg");
 }

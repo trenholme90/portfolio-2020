@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <div class="bg-gradient"></div>
-    <div class="bg-gradient bg-gradient--bottom"></div>
     <Header />
-    <transition name="fadeY">
-      <router-view :key="$route.name + ($route.params.id || '')"/>
+    <transition mode="out-in">
+      <router-view :key="$route.name + ($route.params.id || '')" />
     </transition>
   </div>
 </template>

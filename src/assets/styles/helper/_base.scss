@@ -1,9 +1,8 @@
-@import './variables/variables';
-@import "../helper/transition";
 
 #app {
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     box-sizing: border-box;
 }
 
@@ -38,6 +37,7 @@
 
     h1 {
         font-size: 1.1em;
+        transform: translateY(50px);
     }
 }
 
@@ -84,7 +84,7 @@
             box-shadow: inset 0 0 50px $primary-colour,
             inset 20px 0 80px $secondary-colour,
             inset -20px 0 80px $primary-colour,
-            inset 20px 0 300px #ce73fd,
+            inset 20px 0 300px $primary-colour,
             inset -20px 0 300px $primary-colour,
             0 0 20px 1px $primary-colour,
             0px 0px 1px $primary-colour,
@@ -107,7 +107,7 @@
             box-shadow: inset 0 0 50px $secondary-colour,
             inset 20px 0 80px $secondary-colour,
             inset -20px 0 80px $secondary-colour,
-            inset 20px 0 300px #ce73fd,
+            inset 20px 0 300px $primary-colour,
             inset -20px 0 300px $secondary-colour,
             0 0 20px 1px $primary-colour,
             0px 0px 1px $primary-colour,
@@ -144,9 +144,19 @@
 [data-page-type] {
     // 102px is height of header
     // height: calc(100% - 102px);
+    position: relative;
 
-    @media screen and (min-width: 1025px) {
-        height: calc(100% - 130px);
+    &:before {
+        content: "";
+        position: absolute;
+        top: -130px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        display: block;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(79, 26, 132, 0.2));
+        @extend .base-layer;
     }
 }
 
@@ -161,6 +171,24 @@
     }
 }
 
+[data-page-type="work"] {
+    
+    .page-container{
+        height: calc(100% - 130px);
+        
+        @media screen and (min-width: 1025px) {
+            height: auto;
+        }
+    }
+
+    &:before {
+
+        @media screen and (min-width: 1025px) {
+            height: calc(100% + 130px)
+        }     
+    }
+}
+
 .subtitle {
     @extend .title;
     font-size: 1em;
@@ -170,12 +198,12 @@
 
     @media screen and (min-width: 768px) {
         font-size: 1.3em;
-        height: 50px;
-        line-height: 50px;
+        height: 60px;
+        line-height: 60px;
     }
 
     h1.date {
-        font-size: .9em;
+        font-size: $base-unit;
 
         @media screen and (min-width: 768px) {
             font-size: 1.3em;
@@ -265,6 +293,10 @@
 
 .border-radius {
     border-radius: 20px;
+}
+
+.hidden {
+    display: none;
 }
 
 .hide-mobile {
