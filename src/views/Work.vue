@@ -106,18 +106,16 @@ export default {
   beforeRouteUpdate (to, from, next) {
     console.log(to, from)
     this.animate = false
-    next()
     setTimeout(() => {
       next()
-    }, 1200);
+    }, 1600);
   },
   beforeRouteLeave (to, from, next) {
     console.log(to, from, next)
     this.animate = false
-    next()
     setTimeout(() => {
       next()
-    }, 1200);
+    }, 1600);
   },
   methods: {
     dataHandler: function() {
