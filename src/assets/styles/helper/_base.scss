@@ -1,5 +1,3 @@
-@import './variables/variables';
-@import "../helper/transition";
 
 #app {
     height: 100vh;
@@ -160,10 +158,6 @@
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(79, 26, 132, 0.2));
         @extend .base-layer;
     }
-
-    @media screen and (min-width: 1025px) {
-        height: calc(100% - 130px);
-    }
 }
 
 [data-page-type="home"] {
@@ -174,6 +168,24 @@
         @media screen and (max-width: 1024px) {
             height: 100%;
         }
+    }
+}
+
+[data-page-type="work"] {
+    
+    .page-container{
+        height: calc(100% - 130px);
+        
+        @media screen and (min-width: 1025px) {
+            height: auto;
+        }
+    }
+
+    &:before {
+
+        @media screen and (min-width: 1025px) {
+            height: calc(100% + 130px)
+        }     
     }
 }
 
@@ -191,7 +203,7 @@
     }
 
     h1.date {
-        font-size: .9em;
+        font-size: $base-unit;
 
         @media screen and (min-width: 768px) {
             font-size: 1.3em;

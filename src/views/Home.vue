@@ -1,6 +1,8 @@
 <template>
   <div data-page-type="home" :class="[{ 'animate-in': animate }, { 'animate-out': !animate }]">
-    <div class="swiper"></div>
+    <!-- <div class="swiper">
+      <Logo logo-class="swiper-logo" />
+    </div> -->
     <div class="page-container">
       <section class="section section--info flex--column">
         <div class="content-block content-block--center">
@@ -45,6 +47,7 @@
 </template>
 
 <script>
+//import Logo from "../components/Logo.vue";
 import Button from "../components/Button.vue";
 import Github from "../components/icons/Github.vue";
 import Twitter from "../components/icons/Twitter.vue";
@@ -55,7 +58,8 @@ export default {
     Button,
     Github,
     Twitter,
-    Email
+    Email, 
+   // Logo
   },
   data: function() {
     return {
@@ -63,10 +67,7 @@ export default {
     };
   },
   mounted() {
-    const swiper = document.querySelector('.swiper');
-    swiper.classList.add('hidden')
     setTimeout(() => {
-      swiper.classList.remove('hidden')
       this.animate = true
     }, 100);
   },

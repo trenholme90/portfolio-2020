@@ -1,6 +1,8 @@
 <template>
   <div data-page-type="work" :key="place" :class="[{ 'animate-in': animate }, { 'animate-out': !animate }]">
-    <div class="swiper"></div>
+    <!-- <div class="swiper">
+
+    </div> -->
     <div class="page-container">
       <section class="section section--full flex--column flex-desktop--content-center">
         <div class="content-block content-block--center">
@@ -59,7 +61,7 @@
         </div>
       </section>
     </div>
-    <div :class="['section--hero__img app-background-image ', heroImage]"></div>
+    <!-- <div :class="['section--hero__img app-background-image ', heroImage]"></div> -->
   </div>
 </template>
 
@@ -81,7 +83,7 @@ export default {
       date: "",
       text: "",
       skills: [],
-      heroImage: '',
+      //heroImage: '',
       images: [],
       nextRoute: "",
       previousRoute: "",
@@ -104,16 +106,18 @@ export default {
   beforeRouteUpdate (to, from, next) {
     console.log(to, from)
     this.animate = false
+    next()
     setTimeout(() => {
       next()
-    }, 1600);
+    }, 1200);
   },
   beforeRouteLeave (to, from, next) {
     console.log(to, from, next)
     this.animate = false
+    next()
     setTimeout(() => {
       next()
-    }, 1600);
+    }, 1200);
   },
   methods: {
     dataHandler: function() {
@@ -134,7 +138,7 @@ export default {
             this.date = date;
             this.text = text;
             this.skills = skills;
-            this.heroImage = this.formatName(pageName);
+            //this.heroImage = this.formatName(pageName);
             this.images = images;
             this.currentRouteIndex = index;
             this.nextRouteIndex = index + 1;
@@ -199,10 +203,10 @@ export default {
 
       if(headerPos < 0) scrollElement.scrollTo(scrollOptions);
     },
-    formatName: function(pageName) {
-      const name = pageName.replace(/\s+/g, '-').toLowerCase();
-      return name
-    }
+    // formatName: function(pageName) {
+    //   const name = pageName.replace(/\s+/g, '-').toLowerCase();
+    //   return name
+    // }
   }
 };
 </script>
