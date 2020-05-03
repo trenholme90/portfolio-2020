@@ -1,1 +1,21 @@
-<svg width="800" height="800" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="a" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="800"><circle cx="400" cy="400" r="400" fill="#C4C4C4"/></mask><g mask="url(#a)"><path fill="#F324AD" d="M-20 0h884v160H-20z"/><path fill="#CC1CBA" d="M6 160h884v160H6z"/><path fill="#9A0DB1" d="M-49 320h884v160H-49z"/><path fill="#621EA6" d="M-70 480h884v160H-70z"/><path fill="#62118B" d="M-75 640h884v160H-75z"/></g><path d="M267.076 445.029c-.053 79.005-99.854 88.482-150.076 83.279v67.566c75.564 5.762 227.011-16.341 228.288-150.845h-78.212zM162.998 169h494.976v77.9H162.998z" fill="#fff"/><path fill="#fff" d="M501.157 597V172.445h77.696V597zM267.768 445.307V229.792h77.696v215.515z"/><circle cx="641.5" cy="580.5" r="16.5" fill="#fff"/></svg>
+<svg width="800" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <mask id="a" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="800">
+    <circle cx="400" cy="400" r="400" fill="#C4C4C4" />
+  </mask>
+  <g mask="url(#a)">
+    <path fill="#F324AD" d="M-20 0h884v160H-20z" />
+    <path fill="#CC1CBA" d="M6 160h884v160H6z" />
+    <path fill="#9A0DB1" d="M-49 320h884v160H-49z" />
+    <path fill="#621EA6" d="M-70 480h884v160H-70z" />
+    <path fill="#62118B" d="M-75 640h884v160H-75z" />
+  </g>
+  <path
+    d="M267.076 445.029c-.053 79.005-99.854 88.482-150.076 83.279v67.566c75.564 5.762 227.011-16.341 228.288-150.845h-78.212zM162.998 169h494.976v77.9H162.998z"
+    fill="#fff"
+  />
+  <path
+    fill="#fff"
+    d="M501.157 597V172.445h77.696V597zM267.768 445.307V229.792h77.696v215.515z"
+  />
+  <circle cx="641.5" cy="580.5" r="16.5" fill="#fff" />
+</svg>

@@ -21,10 +21,14 @@
           <Github clss="logo-icon" />
           <Twitter clss="logo-icon" />
           <Email clss="logo-icon" />
-        </div>  
+        </div>
       </ul>
     </div>
-    <Hamburger :menuIsOpen="isOpen" @click.native="toggleMenu" class="hide-desktop"/>
+    <Hamburger
+      :menuIsOpen="isOpen"
+      @click.native="toggleMenu"
+      class="hide-desktop"
+    />
   </nav>
 </template>
 

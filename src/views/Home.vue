@@ -1,5 +1,8 @@
 <template>
-  <div data-page-type="home" :class="[{ 'animate-in': animate }, { 'animate-out': !animate }]">
+  <div
+    data-page-type="home"
+    :class="[{ 'animate-in': animate }, { 'animate-out': !animate }]"
+  >
     <!-- <div class="swiper">
       <Logo logo-class="swiper-logo" />
     </div> -->
@@ -11,7 +14,7 @@
           </div>
           <div class="margin-top margin-bottom">
             <div class="subtitle text-block">
-                <h1>Front-end Developer</h1>
+              <h1>Front-end Developer</h1>
             </div>
           </div>
           <p>
@@ -20,7 +23,9 @@
           </p>
         </div>
         <div class="flex--full-height full-width">
-          <div class="flex--column flex--content-end flex-desktop--content-center">
+          <div
+            class="flex--column flex--content-end flex-desktop--content-center"
+          >
             <footer>
               <Button
                 btnClass="btn btn--primary"
@@ -40,7 +45,7 @@
           <Twitter clss="logo-icon" />
           <Email clss="logo-icon" />
         </div>
-    </section>
+      </section>
       <div class="section--hero__img"></div>
     </div>
   </div>
@@ -58,8 +63,8 @@ export default {
     Button,
     Github,
     Twitter,
-    Email, 
-   // Logo
+    Email
+    // Logo
   },
   data: function() {
     return {
@@ -68,14 +73,14 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this.animate = true
+      this.animate = true;
     }, 100);
   },
-  beforeRouteLeave (to, from, next) {
-    console.log(to, from, next)
-    this.animate = false
+  beforeRouteLeave(to, from, next) {
+    console.log(to, from, next);
+    this.animate = false;
     setTimeout(() => {
-      next()
+      next();
     }, 1600);
   }
 };

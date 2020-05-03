@@ -11,12 +11,12 @@ export default {
   methods: {
     eventHandler: function() {
       const vm = this,
-            $this = this.$el,
-            btn = $this.querySelector('.btn')
+        $this = this.$el,
+        btn = $this.querySelector(".btn");
 
-      if(!btn.classList.contains('is-disabled')) {
-        vm.$router.push( { path: vm.btnLink} )
-        $this.removeEventListener('click', $this)
+      if (!btn.classList.contains("is-disabled")) {
+        vm.$router.push({ path: vm.btnLink });
+        $this.removeEventListener("click", $this);
       }
     }
   }

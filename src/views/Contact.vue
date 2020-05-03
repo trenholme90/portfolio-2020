@@ -8,9 +8,14 @@
           </div>
           <div class="margin-top padding">
             <p>
-              If you like what you see and want to get in contact, please at <a class="link" href="mailto:jje.trenholme@gmail.com">jje.trenholme@gmail.com</a> or reach out for me on one of the platforms below. I look forward to working with you. 
+              If you like what you see and want to get in contact, please at
+              <a class="link" href="mailto:jje.trenholme@gmail.com"
+                >jje.trenholme@gmail.com</a
+              >
+              or reach out for me on one of the platforms below. I look forward
+              to working with you.
             </p>
-            <br/>
+            <br />
             <p>
               Thanks, James
             </p>
