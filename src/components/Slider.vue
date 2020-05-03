@@ -1,14 +1,12 @@
 <template>
-  <div class="slider">
-    <transition name="fade">
-      <div :v-if="isShowing" class="slider__inner">
-        <!-- <img :src="sliderImg" class="slider__img" /> -->
-        <div
-          v-bind:style="{ 'background-image': `url('${sliderImg}')` }"
-          class="slider__img"
-        ></div>
-      </div>
-    </transition>
+  <div class="slider" :class="[ { 'animate-in': animate },  { 'animate-out': !animate }]">
+    <div :v-if="isShowing" class="slider__inner">
+      <!-- <img :src="sliderImg" class="slider__img" /> -->
+      <div
+        v-bind:style="{ 'background-image': `url('${sliderImg}')` }"
+        class="slider__img"
+      ></div>
+    </div>
     <div class="slider__nav">
       <div class="slider__counter">
         {{ `0${activeIndex}/0${imgQuant}` }}
@@ -26,6 +24,7 @@
 
 <script>
 import Chevron from "./icons/Chevron.vue";
+import { setTimeout } from 'timers';
 export default {
   name: "Slider",
   props: ["sliderImages"],
@@ -38,7 +37,8 @@ export default {
       sliderImg: this.sliderImages[0],
       isShowing: true,
       activeIndex: "1",
-      imgQuant: ""
+      imgQuant: "",
+      animate: false
     };
   },
   mounted() {
@@ -58,6 +58,8 @@ export default {
     for (let [index, arrow] of arrows.entries()) {
       this.arrowBinding(arrow, previousArrow, nextArrow, index, this.images, dots, vm);
     }
+
+    this.animate = true
   },
   methods: {
     sliderBinding: function(index, dot, images, dots, vm) {
@@ -66,9 +68,15 @@ export default {
             targetIndex = parseInt(targetInfo[1])
 
       dot.addEventListener("click", function() {
+        vm.animate = false
         vm.removeAllInstancesOfClass(dots, "is-active");
         vm.changeImgSrc(targetSrc, targetIndex, vm, dots);
-        this.classList.add("is-active");
+        setTimeout(() => {
+          vm.animate = true
+        }, 400);
+        setTimeout(() => {
+          this.classList.add("is-active");
+        }, 800);
       });
     },
 
@@ -79,8 +87,12 @@ export default {
               previousIndex = currentIndex - 1,
               nextIndex = currentIndex + 1
 
+        vm.animate = false
         if(arrow === nextArrow) vm.arrowHandler(nextIndex, images, dots, vm)
         else if (arrow === previousArrow) vm.arrowHandler(previousIndex, images, dots, vm)
+        setTimeout(() => {
+          vm.animate = true
+        }, 400);
       })
     },
 
@@ -116,7 +128,9 @@ export default {
       vm.$data.activeIndex = targetIndex + 1;
       vm.$data.isShowing = false;
       vm.removeAllInstancesOfClass(dots, "is-active");
-      sliderImg.style.backgroundImage = `url('${targetSrc}')`;
+      setTimeout(() => {
+        sliderImg.style.backgroundImage = `url('${targetSrc}')`; 
+      }, 400);
     },
 
     arrowHandler: (index, images, dots, vm) => {
@@ -129,7 +143,9 @@ export default {
 
       vm.changeImgSrc(targetSrc, targetIndex, vm, dots, isNextOrPrevious)
       const targetDot = vm.returnTargetFromArray(index, dots);
-      if(targetDot[0])targetDot[0].classList.add("is-active");
+      setTimeout(() => {
+        if(targetDot[0])targetDot[0].classList.add("is-active");
+      }, 800);
     },
 
     returnTargetFromArray: (index, array) => {
