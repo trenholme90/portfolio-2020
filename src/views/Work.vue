@@ -30,14 +30,16 @@
           </p>
         </div>
         <div class="content-block content-block--full content-block--center">
-          <h1>Skills</h1>
+          <h1 class="margin-bottom">Skills</h1>
           <ul class="content-block__list">
             <li
               v-for="skill in skills"
               :key="skill.index"
               class="content-block__list-item"
             >
-              {{ skill }}
+              <div :class="['badge', skill.clss]">
+                <span>{{ skill.type }}</span>
+              </div>
             </li>
           </ul>
         </div>
