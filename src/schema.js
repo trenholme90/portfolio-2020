@@ -40,7 +40,8 @@ export default {
       "https://i.ibb.co/L06p9zd/lowfare.png",
       "https://i.ibb.co/wRwr2x1/destination.png",
       "https://i.ibb.co/P1CRZgS/location.png"
-    ]
+    ],
+    link: "https://www.jet2.com/"
   },
   item2: {
     index: 1,
@@ -75,7 +76,8 @@ export default {
       "https://i.ibb.co/fY6JZgB/Toni-Guy-screenshot.jpg",
       "https://i.ibb.co/3sbvcCn/Bacardi-screenshot.jpg",
       "https://i.ibb.co/nDdJvTw/BYOB-screenshot.jpg"
-    ]
+    ],
+    link: "https://groceries.asda.com/"
   },
   item3: {
     index: 2,
@@ -109,7 +111,8 @@ export default {
     images: [
       "https://i.ibb.co/n0YC0cn/loko-home.png",
       "https://i.ibb.co/LYjQ7Gn/loko-product.png"
-    ]
+    ],
+    link: "https://www.lokopetapparel.com/"
   },
   item4: {
     index: 3,
@@ -144,6 +147,7 @@ export default {
         clss: "json"
       }
     },
-    images: ["https://i.ibb.co/Xb63k6G/timeline.png"]
+    images: ["https://i.ibb.co/Xb63k6G/timeline.png"],
+    link: "https://github.com/trenholme90"
   }
 };

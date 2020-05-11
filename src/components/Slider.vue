@@ -4,11 +4,12 @@
     :class="[{ 'animate-in': animate }, { 'animate-out': !animate }]"
   >
     <div :v-if="isShowing" class="slider__inner">
-      <!-- <img :src="sliderImg" class="slider__img" /> -->
-      <div
-        v-bind:style="{ 'background-image': `url('${sliderImg}')` }"
-        class="slider__img"
-      ></div>
+      <a :href="hyperlink">
+        <div
+          v-bind:style="{ 'background-image': `url('${sliderImg}')` }"
+          class="slider__img"
+        ></div>
+      </a>
     </div>
     <div class="slider__nav">
       <div class="slider__counter">
@@ -30,7 +31,7 @@ import Chevron from "./icons/Chevron.vue";
 import { setTimeout } from "timers";
 export default {
   name: "Slider",
-  props: ["sliderImages"],
+  props: ["sliderImages", "link"],
   components: {
     Chevron
   },
@@ -38,6 +39,7 @@ export default {
     return {
       images: this.sliderImages,
       sliderImg: this.sliderImages[0],
+      hyperlink: this.link,
       isShowing: true,
       activeIndex: "1",
       imgQuant: "",
@@ -71,6 +73,20 @@ export default {
     }
 
     this.animate = true;
+  },
+  beforeRouteUpdate(to, from, next) {
+    console.log(to, from);
+    this.animate = false;
+    setTimeout(() => {
+      next();
+    }, 1600);
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log(to, from, next);
+    this.animate = false;
+    setTimeout(() => {
+      next();
+    }, 1600);
   },
   methods: {
     sliderBinding: function(index, dot, images, dots, vm) {

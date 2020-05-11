@@ -46,7 +46,7 @@
         <hr class="hide-desktop" />
       </section>
       <section class="section section--full flex--column">
-        <Slider :sliderImages="images" :key="images.length" />
+        <Slider :sliderImages="images" :link="link" :key="images.length" />
         <div class="full-width" style="height: 100px;">
           <div class="flex--column flex--full-height">
             <footer>
@@ -93,6 +93,7 @@ export default {
       skills: [],
       //heroImage: '',
       images: [],
+      link: "",
       nextRoute: "",
       previousRoute: "",
       currentRouteIndex: "",
@@ -139,6 +140,7 @@ export default {
             date = Schema[item].date,
             text = Schema[item].text,
             skills = Schema[item].skills,
+            link = Schema[item].link,
             images = Schema[item].images,
             currentRoute = this.$route.params.id;
 
@@ -148,6 +150,7 @@ export default {
             this.date = date;
             this.text = text;
             this.skills = skills;
+            this.link = link;
             //this.heroImage = this.formatName(pageName);
             this.images = images;
             this.currentRouteIndex = index;

@@ -25,23 +25,6 @@
             margin: 0;
             order: 1;
         }
-    }
-
-    &__img {
-        position: relative;
-        height: 100%;
-        background-position: top center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        border-radius: 10px;
-        // opacity: 0;
-        // animation: fadeDown 1s;
-        // animation-fill-mode: forwards;
-
-        // &.fade-animation {
-        //     animation: fadeToggle 1s;
-        //     animation-fill-mode: forwards;
-        // }
 
         &:before {
             content: "";
@@ -57,6 +40,73 @@
 
             @media screen and (min-width: 1025px) {
                 left: -40px;
+            }
+        }
+    }
+
+    &__img {
+        position: relative;
+        height: 100%;
+        background-position: top center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+
+        &:after {
+            position: absolute;
+            content: "Visit Site";
+            cursor: pointer;
+            padding: 10px 20px;
+            display: block;
+            margin: 0 auto;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.3em;
+            border: 2px solid $white;
+            border-radius: 10px;
+            background: $tertiary-colour;
+            color: $white;
+        }
+
+        @media screen and (min-width: 1025px) {
+            &:before,
+            &:after {
+                position: absolute;
+                top: 0;
+                opacity: 0;
+                transition: all .5s;
+            }
+
+            &:after {
+                top: 50%;
+                right: 50%;
+                bottom: auto;
+                transform: translate(50%, -50%);
+            }
+
+            &:hover {
+                &:before {
+                    content: "";
+                    opacity: 1;
+                    width: 100%;
+                    height: 100%;
+                    background-color: black;
+                    opacity: .8;
+                    border-radius: 10px;
+                    transition: all .5s;
+                }
+        
+                &:after {
+                    opacity: 1;
+                    padding: 10px 20px;
+                    display: block;
+                    margin: 0 auto;
+                    font-size: 1.3em;
+                    border: 2px solid #fff;
+                    border-radius: 10px;
+                    transition: opacity .5s;
+                }
+
             }
         }
     }
