@@ -37,9 +37,9 @@ export default {
       }
     },
     images: [
-      "https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg",
-      "https://trenholme90.github.io/images/Bacardi-screenshot.jpg",
-      "https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg"
+      "https://i.ibb.co/L06p9zd/lowfare.png",
+      "https://i.ibb.co/wRwr2x1/destination.png",
+      "https://i.ibb.co/P1CRZgS/location.png"
     ]
   },
   item2: {
@@ -72,8 +72,9 @@ export default {
       }
     },
     images: [
-      "https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg",
-      "https://trenholme90.github.io/images/Bacardi-screenshot.jpg"
+      "https://i.ibb.co/fY6JZgB/Toni-Guy-screenshot.jpg",
+      "https://i.ibb.co/3sbvcCn/Bacardi-screenshot.jpg",
+      "https://i.ibb.co/nDdJvTw/BYOB-screenshot.jpg"
     ]
   },
   item3: {
@@ -106,8 +107,8 @@ export default {
       }
     },
     images: [
-      "https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg",
-      "https://trenholme90.github.io/images/Bacardi-screenshot.jpg"
+      "https://i.ibb.co/n0YC0cn/loko-home.png",
+      "https://i.ibb.co/LYjQ7Gn/loko-product.png"
     ]
   },
   item4: {
@@ -143,9 +144,6 @@ export default {
         clss: "json"
       }
     },
-    images: [
-      "https://trenholme90.github.io/images/Toni&Guy-screenshot.jpg",
-      "https://trenholme90.github.io/images/Bacardi-screenshot.jpg"
-    ]
+    images: ["https://i.ibb.co/Xb63k6G/timeline.png"]
   }
 };
