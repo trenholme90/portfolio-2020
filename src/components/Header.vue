@@ -19,7 +19,7 @@ export default {
     };
   },
   mounted() {
-    this.animate = true
+    this.animate = true;
   }
 };
 </script>
