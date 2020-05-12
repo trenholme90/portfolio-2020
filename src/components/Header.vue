@@ -1,8 +1,6 @@
 <template>
-  <div class="header">
-    <transition name="fadeY" style="transition-delay: .25s">
-      <Nav v-show="animate" />
-    </transition>
+  <div :class="[ 'header', { 'animate-in': animate }, { 'animate-out': !animate }]">
+    <Nav />
   </div>
 </template>
 
@@ -19,7 +17,9 @@ export default {
     };
   },
   mounted() {
-    this.animate = true;
+    setTimeout(() => {
+      this.animate = true;
+    }, 100);
   }
 };
 </script>
