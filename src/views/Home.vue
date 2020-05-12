@@ -13,7 +13,7 @@
             <h1>James Trenholme</h1>
           </div>
           <div class="margin-top margin-bottom">
-            <div class="subtitle text-block">
+            <div class="subtitle text-block text-block--small">
               <h1>Front-end Developer</h1>
             </div>
           </div>

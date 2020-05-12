@@ -16,10 +16,10 @@
             <h1>{{ role }}</h1>
           </div>
           <div class="flex margin-top margin-bottom">
-            <div class="subtitle text-block margin-right">
+            <div class="subtitle text-block text-block--small margin-right">
               <h1>{{ place }}</h1>
             </div>
-            <div class="subtitle text-block">
+            <div class="subtitle text-block text-block--small">
               <h1 class="date">{{ date }}</h1>
             </div>
           </div>

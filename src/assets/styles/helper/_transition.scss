@@ -23,6 +23,25 @@
         animation-fill-mode: forwards;
     }
 
+    &--small {
+        .animate-in & {
+            height: 40px;
+            transition: height .4s ease-in-out;
+            animation-fill-mode: forwards;
+    
+            @media screen and (min-width: 768px) {
+                height: 60px;
+            } 
+        }
+    
+        .animate-out & {
+            height: 0;
+            transition: height .4s ease-in-out;
+            transition-delay: .35s;
+            animation-fill-mode: forwards;
+        }
+    }
+
     h1 {
 
         .animate-in & {
@@ -73,7 +92,7 @@ section {
         opacity: 0;
         transform: translateY(-20px);
         transition: transform.4s ease-in-out,
-                    opacity .4s ease-in-out;
+                    opacity .4s ease-in-out;    
         animation-fill-mode: forwards;
     }
 }
