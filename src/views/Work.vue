@@ -117,14 +117,12 @@ export default {
     this.animate = true;
   },
   beforeRouteUpdate(to, from, next) {
-    console.log(to, from);
     this.animate = false;
     setTimeout(() => {
       next();
     }, 1600);
   },
   beforeRouteLeave(to, from, next) {
-    console.log(to, from, next);
     this.animate = false;
     setTimeout(() => {
       next();
