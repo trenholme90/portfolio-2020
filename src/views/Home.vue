@@ -83,7 +83,6 @@ export default {
     }, 100);
   },
   beforeRouteLeave(to, from, next) {
-    console.log(to, from, next);
     this.animate = false;
     setTimeout(() => {
       next();
