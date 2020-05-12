@@ -21,6 +21,13 @@
     }
 }
 
+[data-page-type="Contact"] {
+        
+    @media screen and (min-width: 1025px) {
+        height: calc(100vh - 132px);
+    }
+}
+
 .title {
     height: 50px;
     position: relative;
@@ -314,6 +321,10 @@
 .margin {
     &-top {
         margin-top: $base-unit;
+
+        &--double {
+            margin-top: $double-unit;
+        }
     }
 
     &-right {

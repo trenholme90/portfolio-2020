@@ -32,18 +32,19 @@
         &__img {        
             position: absolute;        
             background-position: bottom;
-            background-image:url("./assets/images/jt-placeholder.png");
+            background-image:url("https://i.ibb.co/PtQ2WqM/profile1.png");
             background-repeat: no-repeat;
             background-size: contain;
             top: 0;
             bottom: 0;
             width: 100%;
-            height: calc(100vh - 130px); // 130 is height of header
+            min-width: 420px;
+            height: calc(100vh - 100px); // 130 is height of header
             max-width: 400px;
             @extend .bottom-layer;
 
             @media screen and (min-width: 768px) {
-                max-width: 500px;
+                min-width: 570px;
             }
             
             @media screen and (min-width: 1025px) {
@@ -51,10 +52,15 @@
                 max-width: none;
                 top: auto;
                 right: 0;
+                height: 100vh;
             }
 
             &--full-page {
                 background-size: cover;
+            }
+
+            &-alt {
+                background-image:url("https://i.ibb.co/J7pz1c2/profile3.png");
             }
         }
     }

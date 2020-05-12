@@ -59,6 +59,26 @@
     }
 }
 
+.header {
+    &.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+        transition: transform.4s ease-in-out,
+                    opacity .4s ease-in-out;
+        animation-fill-mode: forwards;
+        z-index: 2;
+    }
+
+    &.animate-out {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: transform.4s ease-in-out,
+                    opacity .4s ease-in-out;
+        transition-delay: .6s;
+        animation-fill-mode: forwards;
+    }
+}
+
 section {
     .animate-in & {
         opacity: 1;

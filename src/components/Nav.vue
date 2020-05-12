@@ -1,15 +1,11 @@
 <template>
   <nav class="nav">
-    <Logo logo-class="header__logo" />
+    <router-link to="/" data-page="home">
+      <Logo logo-class="header__logo" />
+    </router-link>
     <div class="menu" :class="{ 'is-open': isOpen }">
       <ul class="menu__list">
         <div class="menu__inner">
-          <router-link to="/" class="menu__item" data-page="home">
-            Home
-          </router-link>
-          <router-link to="/about" class="menu__item" data-page="about">
-            About
-          </router-link>
           <router-link to="/work/Jet2" class="menu__item" data-page="work">
             Work
           </router-link>
@@ -18,9 +14,15 @@
           </router-link>
         </div>
         <div class="menu__item logo-icon__container">
-          <Github clss="logo-icon" />
-          <Twitter clss="logo-icon" />
-          <Email clss="logo-icon" />
+          <a href="https://github.com/trenholme90" class="logo-icon">
+            <Github />
+          </a>
+          <a href="https://www.linkedin.com/in/james-trenholme-586839111/" class="logo-icon">
+            <LinkedIn />
+          </a>
+          <a href="mailto:jje.trenholme@gmail.com" class="logo-icon">
+            <Email/>
+          </a>
         </div>
       </ul>
     </div>
@@ -36,7 +38,7 @@
 import Logo from "./Logo.vue";
 import Hamburger from "./icons/Hamburger.vue";
 import Github from "./icons/Github.vue";
-import Twitter from "./icons/Twitter.vue";
+import LinkedIn from "./icons/LinkedIn.vue";
 import Email from "./icons/Email.vue";
 export default {
   name: "Nav",
@@ -44,7 +46,7 @@ export default {
     Logo,
     Hamburger,
     Github,
-    Twitter,
+    LinkedIn,
     Email
   },
   data: () => {

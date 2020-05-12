@@ -1,6 +1,10 @@
 .header {
     position: relative;
     padding: $base-unit;
+    max-width: 1400px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(-20px);
 
     @media screen and (min-width: 768px) {
         padding: $base-unit;

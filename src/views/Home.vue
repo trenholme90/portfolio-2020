@@ -18,8 +18,8 @@
             </div>
           </div>
           <p>
-            A front-end developer from Leeds, that helps build exciting content
-            and user stories.
+            A front-end developer that builds exciting products
+            and user experiences. Feel free to take a look at my work and (if you like what you see) get in touch.
           </p>
         </div>
         <div class="flex--full-height full-width">
@@ -29,7 +29,7 @@
             <footer>
               <Button
                 btnClass="btn btn--primary"
-                btnTxt="Experience"
+                btnTxt="Work"
                 btnLink="/work/Jet2"
               />
               <Button
@@ -41,9 +41,15 @@
           </div>
         </div>
         <div class="logo-icon__container">
-          <Github clss="logo-icon" />
-          <Twitter clss="logo-icon" />
-          <Email clss="logo-icon" />
+          <a href="https://github.com/trenholme90" class="logo-icon">
+            <Github />
+          </a>
+          <a href="https://www.linkedin.com/in/james-trenholme-586839111/" class="logo-icon">
+            <LinkedIn />
+          </a>
+          <a href="mailto:jje.trenholme@gmail.com" class="logo-icon">
+            <Email />
+          </a>
         </div>
       </section>
       <div class="section--hero__img"></div>
@@ -55,14 +61,14 @@
 //import Logo from "../components/Logo.vue";
 import Button from "../components/Button.vue";
 import Github from "../components/icons/Github.vue";
-import Twitter from "../components/icons/Twitter.vue";
+import LinkedIn from "../components/icons/LinkedIn.vue";
 import Email from "../components/icons/Email.vue";
 export default {
   name: "home",
   components: {
     Button,
     Github,
-    Twitter,
+    LinkedIn,
     Email
     // Logo
   },
