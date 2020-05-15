@@ -333,6 +333,10 @@
 
     &-bottom {
         margin-bottom: $base-unit;
+
+        &--half {
+            margin-bottom: 0.5em;
+        }
     }
 }
 
