@@ -9,7 +9,7 @@
     <div class="page-container">
       <section class="section section--info flex--column">
         <div class="content-block content-block--center">
-          <div class="margin-top">
+          <div class="margin-top margin-bottom">
             <div class="title text-block">
               <h1>James Trenholme</h1>
             </div>
