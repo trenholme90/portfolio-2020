@@ -9,10 +9,12 @@
     <div class="page-container">
       <section class="section section--info flex--column">
         <div class="content-block content-block--center">
-          <div class="title text-block">
-            <h1>James Trenholme</h1>
+          <div class="margin-top">
+            <div class="title text-block">
+              <h1>James Trenholme</h1>
+            </div>
           </div>
-          <div class="margin-top margin-bottom">
+          <div class="margin-bottom">
             <div class="subtitle text-block text-block--small">
               <h1>Front-end Developer</h1>
             </div>
